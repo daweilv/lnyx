@@ -43,8 +43,8 @@ body {
   min-height: 100%;
   -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
           box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-  /*background: url("/blog/img/bg.jpeg") no-repeat center center scroll*/
-  background: url("/blog/img/fall.jpg") no-repeat center center scroll;
+  background: url("/blog/img/bg.jpeg") no-repeat center center scroll;
+  /*background: url("/blog/img/fall.jpg") no-repeat center center scroll;*/
   background-size: cover;
 }
 .site-wrapper-inner {
