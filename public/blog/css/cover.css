@@ -2,22 +2,22 @@
  * Globals
  */
 
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
+/*/!* Links *!/*/
+/*a,*/
+/*a:focus,*/
+/*a:hover {*/
+  /*color: #fff;*/
+/*}*/
 
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
-}
+/*/!* Custom default button *!/*/
+/*.btn-default,*/
+/*.btn-default:hover,*/
+/*.btn-default:focus {*/
+  /*color: #333;*/
+  /*text-shadow: none; /!* Prevent inheritence from `body` *!/*/
+  /*background-color: #fff;*/
+  /*border: 1px solid #fff;*/
+/*}*/
 
 
 /*
@@ -47,11 +47,24 @@ body {
   /*background: url("/blog/img/fall.jpg") no-repeat center center scroll;*/
   background-size: cover;
 }
+
+.site-wrapper::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  /*z-index: 2;*/
+}
 .site-wrapper-inner {
   display: table-cell;
   vertical-align: top;
 }
 .cover-container {
+  position: relative;
   margin-right: auto;
   margin-left: auto;
 }
@@ -163,4 +176,59 @@ body {
   .cover-container {
     width: 700px;
   }
+}
+
+/* Buttons
+***************************************************************/
+.btn-group-lg>.btn, .btn-lg {
+  padding: 6px 16px;
+}
+
+.btn-group-md>.btn, .btn-md {
+  padding: 5px 16px;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+  padding: 4px 10px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: inherit;
+  transition: all .5s;
+  border-width: 2px;
+  border-radius: 10px;
+  /*border-radius: 20px;*/
+}
+
+.btn-primary.btn-outline {
+  color: #428bca;
+}
+
+.btn-success.btn-outline {
+  color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+  color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+  color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+  color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+  color: #fff;
+}
+
+.btn-default.btn-outline:hover{
+  background-color: rgba(230,230,230,.8);
 }
