@@ -1,0 +1,5 @@
+安装mongodb数据库。
+mongo //进入数据库
+use lnyxDB //创建项目数据库
+db.createCollection("users") //创建一个集合，也就是表
+db.users.insert({userid: "admin", password: "123456"})
