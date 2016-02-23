@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('lnyx:server');
 var http = require('http');
+var WebSocketServer = require('../tools/WebSocketServer');
 
 /**
  * Get port from environment and store in Express.
@@ -89,3 +90,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+WebSocketServer.start(server);
