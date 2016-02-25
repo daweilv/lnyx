@@ -1,19 +1,39 @@
-var Tail = require('tail').Tail;
-
-
-var app = {
+var path = require('path');
+const spawn = require('child_process').spawn;
+const tail = spawn('tail', ['-f', path.join(__dirname, '../test.log')]);
+const moment = require('moment');
+var Monitor = {
     sendLog: function (connection) {
-        var tail = new Tail("./test.log");
-
-        tail.on("line", function (data) {
-            connection.send(data);
+        var that = this;
+        tail.stdout.on('data', function (buffer) {
+            connection.send(that.wrapMsg(buffer));
         });
 
-        tail.on("error", function (error) {
-            connection.send(error);
+        tail.stderr.on('data', function (buffer) {
+            connection.send(that.wrapMsg(buffer));
         });
+
+        tail.on('close', function (buffer) {
+            connection.send(that.wrapMsg(buffer));
+        });
+
+        process.on('exit', function () {
+            tail.kill();
+        });
+    },
+    timestamp: function () {
+        return moment().format('YYYY-MM-DD HH:mm:ss');
+    },
+    wrapMsg: function (buffer) {
+        var timestamp = this.timestamp();
+        var data;
+        try {
+            data = buffer.toString('UTF-8');
+        } catch (err) {
+            data = err.toString();
+        }
+        return timestamp + '    ' + data;
     }
-
 }
 
-module.exports = app;
+module.exports = Monitor;

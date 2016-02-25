@@ -1,6 +1,9 @@
-body{
-    background-color: #000;
+body {
+    background-color: #333;
     color: #c0c7c7;
-    font-family:monaco, monospace;
-    font-size: .8em;
+}
+
+.main {
+    padding: 0 15px;
+    white-space: pre-wrap;
 }

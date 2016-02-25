@@ -1,9 +1,9 @@
 var Monitor = require('./Monitor');
-var WebSocketServer = require('websocket').server;
+var ws = require('websocket').server;
 
 var app = {
     start: function (server) {
-        var wsServer = new WebSocketServer({
+        var wsServer = new ws({
             httpServer: server,
             // You should not use autoAcceptConnections for production
             // applications, as it defeats all standard cross-origin protection
@@ -40,6 +40,7 @@ var app = {
 
         function originIsAllowed(origin) {
             // put logic here to detect whether the specified origin is allowed.
+            console.log(origin);
             return true;
         }
     }
