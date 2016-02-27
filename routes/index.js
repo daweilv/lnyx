@@ -40,4 +40,8 @@ router.post('/homepage', function(req, res) {
   })(query_doc);
 });
 
+router.get('/a', function(req, res) {
+  res.render('article', { title: 'login' });
+});
+
 module.exports = router;
