@@ -153,100 +153,30 @@
                     </div></div>
             </div>
             <div class="post-comments">
-                <a name="comments"></a>
-                <h4>Comments (53)</h4>
-                <ul class="post-comments">
-                    <li>
-                        <div class="comment-wrapper">
-                            <div class="comment-author"><img src="/lib/mPurpose/img/user1.jpg" alt="User Name"> User Name</div>
-                            <p>
-                                Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat massa ornare vitae. Ut fermentum justo vel venenatis eleifend. Fusce id magna eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                            </p>
-                            <!-- Comment Controls -->
-                            <div class="comment-actions">
-                                <span class="comment-date">June 10th, 2013 3:16 pm</span>
-                                <a href="#" data-toggle="tooltip" data-original-title="Vote Up" class="show-tooltip"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                                <a href="#" data-toggle="tooltip" data-original-title="Vote Down" class="show-tooltip"><i class="glyphicon glyphicon-thumbs-down"></i></a>
-                                <span class="label label-success">+8</span>
-                                <a href="#" class="btn btn-micro btn-grey comment-reply-btn"><i class="glyphicon glyphicon-share-alt"></i> Reply</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <ul>
-                            <li>
-                                <div class="comment-wrapper">
-                                    <div class="comment-author"><img src="/lib/mPurpose/img/user2.jpg" alt="User Name"> User Name</div>
-                                    <p>
-                                        Vivamus euismod elit ac libero facilisis tristique. Duis mollis non ligula vel tincidunt. Nulla consectetur libero id nunc ornare, vel vulputate tellus mollis. Sed quis nulla magna.
-                                    </p>
-                                    <!-- Comment Controls -->
-                                    <div class="comment-actions">
-                                        <span class="comment-date">June 10th, 2013 3:16 pm</span>
-                                        <a href="#" data-toggle="tooltip" data-original-title="Vote Up" class="show-tooltip"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-original-title="Vote Down" class="show-tooltip"><i class="glyphicon glyphicon-thumbs-down"></i></a>
-                                        <span class="label label-danger">-2</span>
-                                        <a href="#" class="btn btn-micro btn-grey comment-reply-btn"><i class="glyphicon glyphicon-share-alt"></i> Reply</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="comment-wrapper">
-                            <div class="comment-author"><img src="/lib/mPurpose/img/user5.jpg" alt="User Name"> User Name</div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel magna lectus.
-                            </p>
-                            <!-- Comment Controls -->
-                            <div class="comment-actions">
-                                <span class="comment-date">June 10th, 2013 3:16 pm</span>
-                                <a href="#" data-toggle="tooltip" data-original-title="Vote Up" class="show-tooltip"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                                <a href="#" data-toggle="tooltip" data-original-title="Vote Down" class="show-tooltip"><i class="glyphicon glyphicon-thumbs-down"></i></a>
-                                <span class="label label-success">+8</span>
-                                <a href="#" class="btn btn-micro btn-grey comment-reply-btn"><i class="glyphicon glyphicon-share-alt"></i> Reply</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <nav>
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <h4>Leave a Comment</h4>
-                <form>
-                    <div class="form-group">
-                        <label for="comment-name"><i class="glyphicon glyphicon-user"></i> <b>Your name</b></label>
-                        <input class="form-control" id="comment-name" type="text" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="comment-email"><i class="glyphicon glyphicon-envelope"></i> <b>Your Email</b></label>
-                        <input class="form-control" id="comment-email" type="text" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="comment-message"><i class="glyphicon glyphicon-comment"></i> <b>Your Message</b></label>
-                        <textarea class="form-control" rows="5" id="comment-message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-large pull-right">Send</button>
-                    </div>
-                    <div class="clearfix"></div>
-                </form>
+                <a id="comments"></a>
+                <h4>Comments</h4>
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                     */
+                    /*
+                     var disqus_config = function () {
+                     this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+
+                        s.src = '//lnyx.disqus.com/embed.js';
+
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
             </div>
         </div>
     </div>
@@ -262,6 +192,7 @@
 
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script id="dsq-count-scr" src="//lnyx.disqus.com/count.js" async></script>
 
 </body>
 </html>
