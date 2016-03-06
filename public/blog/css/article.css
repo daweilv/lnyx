@@ -135,6 +135,13 @@ a:hover {
 }
 
 @media (max-width: 767px) {
+    .main.container{
+        padding: 0;
+    }
+    .post{
+        padding-left: 15px!important;
+        padding-right: 15px!important;
+    }
     .navbar{
         margin-bottom: 0;
     }
@@ -298,3 +305,4 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 }
 
 /*---footer---*/
+
