@@ -254,7 +254,7 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 }
 .post .post-image img{
     box-shadow: 0 0 5px #000;
-    max-width: 100%;
+    max-width: 80%;
     vertical-align: middle;
 }
 
