@@ -1,51 +1,22 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "lucida grande", "lucida sans unicode", lucida, "Helvetica Neue", helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     background: url(../img/page-background.png)
 }
-h1 {
-    color: #53555c;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 800;
-}
-h2 {
-    color: #53555c;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 2em;
-    border-bottom: 2px solid #53555c;
-    line-height: 1.5em;
-    margin: 30px 0;
-    padding-left: 10px;
-}
-h3 {
-    font-family: 'Open Sans', sans-serif;
-    color: #53555c;
-    font-size: 1.5em;
-}
-h4 {
-    font-family: 'Open Sans', sans-serif;
-    color: #53555c;
-    margin-bottom: 10px;
-}
+
 a {
     color: #4f8db3;
 }
 a:hover {
     color: #2f556d;
 }
-.btn {
-    border: 1px solid #4f8db3;
-    /*border-radius: 2px;*/
-    background-clip: padding-box;
-    cursor: pointer;
-    display: inline-block;
-    text-transform: none;
-    transition: all .25s ease;
-    text-align: center;
-    background: none repeat scroll 0 0 #4f8db3;
-    text-shadow: none;
-    box-shadow: none;
-    color: #FFF;
-    white-space: nowrap;
+.btn-primary{
+    background-color: #4f8db3;
+    border-color: #4f8db3;
+}
+.btn-primary.active,.btn-primary:hover,.btn-primary:active{
+    background-color: #36749A;
+    border-color: #36749A;
 }
 /*---nav---*/
 .navbar-blog {
@@ -60,8 +31,8 @@ a:hover {
 .navbar-blog .navbar-brand {
     color: #999;
     font-size: 20px;
-    height: 60px;
-    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .navbar-blog .navbar-brand:hover,
@@ -70,25 +41,19 @@ a:hover {
     background-color: transparent;
 }
 
-.navbar-blog .navbar-brand a{
-    display:inline-block;
-}
-
 .navbar-blog .navbar-text {
-    /*color: #777;*/
     color: #999;
 }
 
 .navbar-blog .navbar-nav > li > a {
-    /*color: #777;*/
-    font-size: 16px;
-    padding: 20px 25px;
+    /*font-size: 16px;11*/
+    padding-top: 20px;
+    padding-bottom: 20px;
     color: #999;
 }
 
 .navbar-blog .navbar-nav > li > a:hover,
 .navbar-blog .navbar-nav > li > a:focus {
-    /*color: #333;*/
     background-color: transparent;
     color: #4f8db3;
 }
@@ -96,10 +61,8 @@ a:hover {
 .navbar-blog .navbar-nav > .active > a,
 .navbar-blog .navbar-nav > .active > a:hover,
 .navbar-blog .navbar-nav > .active > a:focus {
-    /*color: #555;*/
-    /*background-color: #e7e7e7;*/
     color: #4f8db3;
-    font-weight: 600 !important;
+    font-weight:bold;
 }
 
 .navbar-blog .navbar-nav > .disabled > a,
@@ -161,9 +124,13 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 /*---nav---*/
 
 /*---sidebar---*/
-.sidebar h4{
+.sidebar div.sidebar-title {
+    color: #53555c;
     margin-top: 20px;
-    font-weight: 700;
+    margin-bottom: 10px;
+    font-weight: bold;
+
+    /*font-size: 16px;*/
 }
 .sidebar .recent-posts a,.sidebar .categories a{
     color: #535b60;
@@ -193,7 +160,6 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 }
 
 .post .post-title {
-    font-family: 'Open Sans', sans-serif;
     color: #53555c;
     font-size: 22px;
     font-weight: bolder;
@@ -223,6 +189,7 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 }
 
 .post .post-content{
+    color: #555;
     margin: 30px 0 20px 0;
     padding-bottom: 20px;
     border-bottom: 2px dotted #CCC;
@@ -246,7 +213,7 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 }
 .footer .container{
     text-align: center;
-    color: #53555c;
+    color: #767676;
 }
 
 .friend-links {
