@@ -2,16 +2,141 @@
 <html lang="zh-CN">
 <head>
     <% include common/head.ejs%>
+    <script>
+        var data = <%-JSON.stringify(data) %>
+    </script>
 </head>
 
 <body>
 <% include common/nav.ejs %>
-
-<div class="container main">
-
-
-
+<div class="container">
+    <ol class="breadcrumb pull-right">
+        <li><a href="/admin">主页</a></li>
+        <li><a href="/admin/users">用户列表</a></li>
+        <li class="active">编辑</li>
+    </ol>
 </div>
-<% include common/script.ejs%>
+<div class="container main">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="form-group col-sm-6">
+                    <label for="id" class="col-sm-3 control-label">编号</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="id" name="id" placeholder="id">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="login" class="col-sm-3 control-label">账号</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="login" name="login" placeholder="login">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="password" class="col-sm-3 control-label">密码</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="role" class="col-sm-3 control-label">角色</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="role" name="role" placeholder="role">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="name" class="col-sm-3 control-label">名称</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="phone" class="col-sm-3 control-label">电话</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="phone">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="email" class="col-sm-3 control-label">邮箱</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="email">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="qq" class="col-sm-3 control-label">QQ</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="qq" name="qq" placeholder="qq">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="wechat" class="col-sm-3 control-label">微信</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="wechat" name="wechat" placeholder="wechat">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="avatar" class="col-sm-3 control-label">头像</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="avatar" name="avatar" placeholder="avatar">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="status" class="col-sm-3 control-label">状态</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="status" name="status" placeholder="status">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="create_at" class="col-sm-3 control-label">创建日期</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="create_at" name="create_at" placeholder="create_at">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="create_by" class="col-sm-3 control-label">创建人</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="create_by" name="create_by" placeholder="create_by">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="update_at" class="col-sm-3 control-label">更新日期</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="update_at" name="update_at" placeholder="update_at">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="update_by" class="col-sm-3 control-label">更新人</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="update_by" name="update_by" placeholder="update_by">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="delete_at" class="col-sm-3 control-label">删除日期</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="delete_at" name="delete_at" placeholder="delete_at">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="delete_by" class="col-sm-3 control-label">删除人</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="delete_by" name="delete_by" placeholder="delete_by">
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <button class="btn btn-primary" onclick="o.save()">保存</button>
+                    <button class="btn btn-default" onclick="$('form').reset()">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<% include common/script.ejs %>
+<script src="/admin/js/user.js"></script>
+<script>
+    $(function () {
+
+
+    })
+</script>
 </body>
 </html>

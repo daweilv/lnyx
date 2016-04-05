@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <% include common/head.ejs %>
+</head>
+
+<body>
+<% include common/nav.ejs %>
+<div class="container">
+    <ol class="breadcrumb pull-right">
+        <li><a href="/admin">主页</a></li>
+        <li class="active">用户列表</li>
+    </ol>
+</div>
+<div class="container main">
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>账号</th>
+            <th>名称</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>
+                <a href="/admin/user/id">编辑</a>
+                <span class="divider">|</span>
+                <a href="/admin/user/id">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>
+                <a href="/user/id">编辑</a>
+                <span class="divider">|</span>
+                <a href="/user/id">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            <td>
+                <a href="/user/id">编辑</a>
+                <span class="divider">|</span>
+                <a href="/user/id">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+<% include common/script.ejs %>
+</body>
+</html>

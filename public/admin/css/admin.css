@@ -1,0 +1,12 @@
+td span.divider {
+    margin: 0;
+    color: #ddd;
+}
+
+.dropdown .dropdown-toggle .caret{
+    transition:transform 0.2s
+}
+.dropdown.open .dropdown-toggle .caret{
+    transform: rotate(180deg);
+    transition:transform 0.2s
+}

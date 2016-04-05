@@ -1,5 +1,4 @@
 var express = require('express');
-var path = require('path');
 var router = express.Router();
 
 //var mongoose = require('mongoose');
@@ -45,8 +44,6 @@ router.get('/a', function(req, res) {
   res.render('article', { title: 'login' });
 });
 
-router.get('/admin', function (req, res, next) {
-  res.render('admin/index', { title: 'admin' });
-});
+
 
 module.exports = router;
