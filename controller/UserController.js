@@ -3,6 +3,20 @@ var StringUtil = require('../util/StringUtil');
 var SessionUtil = require('../util/SessionUtil');
 
 var UserController = {
+    queryByLogin: function (login,cb) {
+        pool.getConnection(function (err, conn) {
+            if (err) {
+                return cb(err)
+            }
+            conn.query('select * from f_user where delete_by is null and login = ?', login, function (err, rows, fields) {
+                conn.release();
+                if (err) {
+                    return cb(err)
+                }
+                cb(null, rows);
+            });
+        })
+    },
     queryAll: function (cb) {
         pool.getConnection(function (err, conn) {
             if (err) {
@@ -54,9 +68,7 @@ var UserController = {
     },
     update: function update(model,req, cb) {
         model.update_at = StringUtil.getSqlTimeStamp();
-        //todo req.usersession设置
-        //model.update_by = SessionUtil.getUserSession(req).id;
-        model.update_by = '1';
+        model.update_by = req.session.user.login;
         pool.getConnection(function (err, conn) {
             if (err) {
                 return cb(err)
@@ -73,9 +85,7 @@ var UserController = {
     insert: function insert(model,req, cb) {
         model.id = StringUtil.getId();
         model.create_at = StringUtil.getSqlTimeStamp();
-        //todo req.usersession设置
-        //model.create_by = SessionUtil.getUserSession(req).id;
-        model.create_by = '1';
+        model.create_by = req.session.user.login;
         pool.getConnection(function (err, conn) {
             if (err) {
                 return cb(err)
@@ -92,9 +102,7 @@ var UserController = {
     delete: function delete_(id,req, cb) {
         var model = {
             delete_at: StringUtil.getSqlTimeStamp(),
-            //todo req.usersession设置
-            //delete_by: SessionUtil.getUserSession(req).id
-            delete_by: '1'
+            delete_by: req.session.user.login
         };
         pool.getConnection(function (err, conn) {
             if (err) {

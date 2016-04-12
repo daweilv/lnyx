@@ -10,3 +10,24 @@ td span.divider {
     transform: rotate(180deg);
     transition:transform 0.2s
 }
+
+.login-page {
+    background: #d2d6de;
+}
+
+.login-box {
+    width: 360px;
+    margin: 7% auto;
+}
+
+.login-box-title {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-box-body {
+    background: #fff;
+    padding: 20px;
+    color: #666;
+}

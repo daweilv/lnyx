@@ -1,6 +1,6 @@
 var SessionUtil = {
     getUserSession: function getUserSession(req) {
-        return req.session.UserSession;
+        return req.session.user;
     }
 };
 
