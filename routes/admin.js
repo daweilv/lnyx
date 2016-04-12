@@ -12,7 +12,7 @@ router.get('/index', function (req, res, next) {
 });
 
 router.get('/users', function (req, res, next) {
-    res.render('admin/users', { title: '用户列表' });
+    AdminLogic.getUsers(req,res,next);
 });
 
 router.get('/user/:id', function (req, res, next) {
@@ -22,5 +22,9 @@ router.get('/user/:id', function (req, res, next) {
 router.post('/user/', function (req, res, next) {
     AdminLogic.saveUser(req, res, next)
 });
+
+router.delete('/user/:id', function (req, res, next) {
+    AdminLogic.deleteUser(req,res,next)
+})
 
 module.exports = router;

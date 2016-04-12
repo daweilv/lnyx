@@ -1,21 +1,22 @@
 var o = {
     save: function () {
-        var id = $('#id').val();
-        if (!id || id == '') {
-            id = 0
-        }
         $.ajax({
             url: '/admin/user',
             type: 'post',
-            data: {data: $('form').serialize()},
+            data: {_model: $('form').serialize()},
             success: function (rs) {
-                console.log(rs)
+                $('.alert').hide();
+                if (rs.status) {
+                    $('.alert.alert-success').show().text('保存成功！');
+                    location.href = '/admin/users/';
+                } else {
+                    console.log(rs.error);
+                    $('.alert.alert-danger').show().text(rs.error.toString());
+                }
             },
             error: function (err) {
-                console.log(err)
-            },
-            complete: function (e) {
-                console.log(e)
+                $('.alert').hide();
+                $('.alert.alert-warning').show().text('网络异常！');
             }
         })
 

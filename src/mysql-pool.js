@@ -10,4 +10,11 @@ var pool  = mysql.createPool({
     database        : config.db.database
 });
 
+pool.on('connection', function (connection) {
+    console.log('pool.on==>connection');
+});
+pool.on('enqueue', function () {
+    console.log('pool.on==>enqueue. Waiting for available connection slot');
+});
+
 module.exports = pool;
