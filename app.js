@@ -71,7 +71,7 @@ app.use(function(err, req, res, next) {
 //  i++;
 //},1000)
 process.on('uncaughtException', function (err) {
-  console.error('uncaughtException ==>');
+  console.trace('uncaughtException ==>');
   console.error(err);
 });
 module.exports = app;
