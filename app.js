@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session')
+var RedisStore = require('connect-redis')(session);
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
@@ -25,7 +26,8 @@ app.use(cookieParser());
 app.use(session({
   secret: config.session.secret,
   resave: config.session.resave,
-  saveUninitialized: config.session.saveUninitialized
+  saveUninitialized: config.session.saveUninitialized,
+  store: new RedisStore(config.redis)
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
