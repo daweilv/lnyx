@@ -15,5 +15,9 @@ var generator = {
                 callback(null, rows);
             });
         })
+    },
+    getFullField: function () {
+        var sql = 'show full fields from f_user';
+
     }
 }

@@ -1,6 +1,3 @@
-/**
- * Created by lvdw on 16/4/14.
- */
 var pool = require('../src/mysql-pool');
 
 var dbhandler = {
@@ -18,21 +15,27 @@ var dbhandler = {
         for(var prop = 0; prop < length - 1; prop++) {
             args.push(arguments[prop])
         }
-
-        function dbcallback(err, rows, fields) {
-            conn.release();
-            if (err) {
-                return callback(err)
-            }
-            callback(null, rows);
-        }
-        args.push(dbcallback);
-
+        callback = arguments[length-1];
         pool.getConnection(function (err, conn) {
             if (err) {
                 return callback(err)
             }
-            query.call(conn,args);
+            var dbcallback = function(err, rows, fields) {
+                conn.release();
+                callback(err, rows, fields);
+            }
+
+            args.push(dbcallback);
+
+            //var strs = [];
+            //for(var key in args){
+            //    strs.push('args['+key+']')
+            //}
+            //
+            //var fn = 'conn.query('+strs.toString()+')'
+            //eval(fn);
+            conn.query.apply(conn,args)
+
         })
     }
 };

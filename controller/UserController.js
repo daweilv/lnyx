@@ -116,7 +116,22 @@ var UserController = {
                 cb(null, rows);
             });
         })
+    },
+    test: function () {
+        pool.getConnection(function (err, conn) {
+            if (err) {
+                return console.error(err)
+            }
+            conn.query('select * from f_user', function (err, rows, fields) {
+                conn.release();
+                console.log(err)
+                console.log(rows)
+                console.log(fields)
+            });
+        })
     }
 
 }
 module.exports = UserController;
+
+//UserController.test();
