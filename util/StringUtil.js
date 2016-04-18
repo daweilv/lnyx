@@ -15,8 +15,8 @@ var StringUtil = {
         return s;
     },
     getTimeStamp: function getTimeStamp(fmt) {
-        if(!fmt) fmt = 'YYYYMMDDHHmmssSS';
-        var s = moment().format('YYYYMMDDHHmmssSS');
+        if(!fmt) fmt = 'YYYY-MM-DD HH:mm:ss';
+        var s = moment().format(fmt);
         return s;
     },
     getSqlTimeStamp: function getSqlTimeStamp() {
