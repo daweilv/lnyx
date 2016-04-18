@@ -1,20 +1,15 @@
-var pool = require('../src/mysql-pool');
+var DBInstance = require('../src/common/db/DBInstance');
+var config = require('../src/common/config');
 
 var generator = {
 
     getTables: function (sql, values, callback) {
-        pool.getConnection(function (err, conn) {
-            if (err) {
-                return callback(err)
-            }
-            conn.query('select * from information_schema.tables where TABLE_SCHEMA = ?',config.db.database, function (err, rows, fields) {
-                conn.release();
+            DBInstance.query('select * from information_schema.tables where TABLE_SCHEMA = ?',config.db.database, function (err, rows, fields) {
                 if (err) {
                     return callback(err)
                 }
                 callback(null, rows);
             });
-        })
     },
     getFullField: function () {
         var sql = 'show full fields from f_user';
