@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ff8f9c54-6ca2-41fa-8675-2fdb5599e3cb" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/www" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/configDefault.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller/UserController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/db/f_article.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/db/f_article_category.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/db/f_user.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/db/mongoDB" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/deploy/build.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/deploy/deploy.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logic/AdminLogic.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/models/user.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/admin/css/admin.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/admin/js/common.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/admin/js/user.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/css/article.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/css/blog.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/css/layout.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/css/monitor.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/img/bg.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/img/fall.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/img/page-background.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/js/blog.home.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/js/monitor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/page/acticle.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/page/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/page/monitor.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/animate/animate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/animate/animate.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/css/bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/css/bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/css/bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/css/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/bootstrap/js/npm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/jquery/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/nprogress/nprogress.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/nprogress/nprogress.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/pace.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/pace.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/tests/demo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/black/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/blue/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/green/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/orange/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/pink/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/purple/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/red/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/silver/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/white/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/lib/pace/themes/yellow/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/admin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/dbhandler.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/mysql-pool.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/testdbhandler.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/AntiLeechDownloader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/AsyncReadFilesUnderDir.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/ChildProcessTest.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/DBModelGenerator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/Monitor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/WebSocketServer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/util/SessionUtil.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/util/StringUtil.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/_blank.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/common/alert.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/common/head.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/common/nav.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/common/script.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/index.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/login.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/user.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/admin/users.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/article.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/error.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/homepage.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/login.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/logout.ejs" afterPath="" />
+    </list>
+    <ignored path="lnyx.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="lnyx" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/config-default.js" />
+        <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/configDefault.js" />
+        <option value="$PROJECT_DIR$/util/StringUtil.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="317" />
+    <option name="y" value="23" />
+    <option name="width" value="1233" />
+    <option name="height" value="777" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lnyx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lnyxblog" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="4.4.3" />
+  </component>
+  <component name="RunManager" selected="Node.js.www">
+    <configuration default="false" name="www" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="www" working-dir="$PROJECT_DIR$/bin">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.www" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.www" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff8f9c54-6ca2-41fa-8675-2fdb5599e3cb" name="Default" comment="" />
+      <created>1460881793401</created>
+      <option name="number" value="Default" />
+      <updated>1460881793401</updated>
+    </task>
+    <task id="LOCAL-00001" summary="add default config.js">
+      <created>1460894448808</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1460894448808</updated>
+    </task>
+    <task id="LOCAL-00002" summary="use YYYY-MM-DD HH:mm:ss as default time format">
+      <created>1460953457393</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1460953457393</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="317" y="23" width="1233" height="777" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24917492" sideWeight="0.49457365" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2533557" sideWeight="0.50542635" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37664235" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="add default config.js" />
+    <MESSAGE value="use YYYY-MM-DD HH:mm:ss as default time format" />
+    <option name="LAST_COMMIT_MESSAGE" value="use YYYY-MM-DD HH:mm:ss as default time format" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/admin/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41400304">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
