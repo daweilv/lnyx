@@ -1,0 +1,23 @@
+function <%=fn_name%>(){
+
+}
+
+<%=fn_name%>.columns= [
+<%
+columns.forEach(function (column,index) {
+%>
+<%
+    if(index!=column.length-1){
+%>
+{name:"<%=column.field%>",title:""}
+<%
+    }else{
+%>
+
+<%
+    }
+%>
+<%
+})
+%>
+]
