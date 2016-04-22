@@ -78,14 +78,11 @@ function getTable(table, callback) {
         },
         convertTableField2Model: ['getFullFieldOfTable', function (result, callback) {
 
-            var table_name = table;
+            var table_name = convertTableName(table);
             var  _fields = result.getFullFieldOfTable;
             var fields = [];
-            var model = table_name + 'Model';
-            model = function () {
-
-            };
-
+            var model = {};
+            model.name = table_name;
             try{
                  _fields.forEach(function (field) {
                     var commentRegex = /\{(.+)\}/;
@@ -108,15 +105,14 @@ function getTable(table, callback) {
                 return callback(err)
             }
 
-
             model.fields = fields;
-            //model.prototype.fields = fields;
-
             callback(null, model);
         }],
         writeIntoFile: ['convertTableField2Model',function (result,callback) {
-            console.log(JSON.stringify(result.convertTableField2Model.fields))
-            callback()
+            var model = result.convertTableField2Model;
+            writeIntoFile(model, function (err, rs) {
+                callback()
+            })
         }]
     }, function (err, rs) {
         if(err){
@@ -130,8 +126,11 @@ function getTable(table, callback) {
 
 
 function writeIntoFile(model, callback) {
-    var data = JSON.stringify(model);
-    var model_name = model.toString();
+
+    var model_name = model.name;
+    var tpl  = fs.readFileSync('tpl.ejs', {encoding: 'utf8'});
+    var data = ejs.render(tpl,model);
+
 
     var writerStream = fs.createWriteStream(model_name + '.js');
 
@@ -155,9 +154,21 @@ function writeIntoFile(model, callback) {
 function copyObj(obj){
     var outobj = {};
     for(var prop in obj){
-        outobj[prop]  = obj[prop];
+        outobj[prop.toLowerCase()]  = obj[prop];
     }
     return outobj;
+}
+
+function convertTableName(table){
+    var table_name = '';
+    var names = table.split('_');
+    names = names.slice(1);//去掉f
+    names.forEach(function (name) {
+        var firstChar = name.substring(0,1);
+        name = name.replace(firstChar,firstChar.toUpperCase());
+        table_name += name
+    });
+    return table_name + 'Model';
 }
 
 

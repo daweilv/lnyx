@@ -1,23 +1,24 @@
-function <%=fn_name%>(){
+function <%=name%>(){
 
 }
 
-<%=fn_name%>.columns= [
+<%=name%>.fields= [
 <%
-columns.forEach(function (column,index) {
-%>
+fields.forEach(function (field,index) {
+    console.log(field)
+-%>
 <%
-    if(index!=column.length-1){
-%>
-{name:"<%=column.field%>",title:""}
+    if(index!=field.length-1){
+-%>
+    {name:"<%=field.field%>",title:""},
 <%
     }else{
-%>
-
+-%>
+{name:"<%=field.field%>",title:""}
 <%
     }
-%>
+-%>
 <%
 })
-%>
+-%>
 ]
