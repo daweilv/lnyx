@@ -1,4 +1,4 @@
-function <%=name%>(){
+function <%=name%>() {
 
 }
 
@@ -10,11 +10,11 @@ fields.forEach(function (field,index) {
 <%
     if(index!=field.length-1){
 -%>
-    {name:"<%=field.field%>",title:""},
+    {name: "<%=field.field%>", title: ""},
 <%
     }else{
 -%>
-{name:"<%=field.field%>",title:""}
+{name: "<%=field.field%>", title: ""}
 <%
     }
 -%>

@@ -84,7 +84,7 @@ function getTable(table, callback) {
             var model = {};
             model.name = table_name;
             try{
-                 _fields.forEach(function (field) {
+                _fields.forEach(function (field) {
                     var commentRegex = /\{(.+)\}/;
                     var result;
                     if ((result = commentRegex.exec(field.Comment)) != null) {
@@ -99,7 +99,7 @@ function getTable(table, callback) {
                         field._inputValue = obj;
                     }
 
-                     fields.push(copyObj(field));
+                    fields.push(copyObj(field));
                 });
             }catch(err){
                 return callback(err)
