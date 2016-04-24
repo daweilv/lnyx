@@ -1,14 +1,14 @@
 var o = {
     save: function () {
         $.ajax({
-            url: '/admin/user',
+            url: '/admin/article',
             type: 'post',
             data: {_model: $('form').serialize()},
             success: function (rs) {
                 $('.alert').hide();
                 if (rs.status) {
                     $('.alert.alert-success').show().text('保存成功！');
-                    location.href = '/admin/users/';
+                    location.href = '/admin/articles/';
                 } else {
                     console.log(rs.error);
                     $('.alert.alert-danger').show().text(rs.error.toString());

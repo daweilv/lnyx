@@ -4,17 +4,9 @@ var DateUtil = require('../../common/util/DateUtil');
 
 
 var UserController = {
-    queryByLogin: function (login, callback) {
-        DBInstance.query('select * from f_user where delete_by is null and login = ?', login, function (err, rows) {
-            if (err) {
-                return callback(err)
-            }
-            callback(null, rows);
-        });
-    },
     queryAll: function (callback) {
 
-        DBInstance.query('select * from f_user where delete_by is null', function (err, rows, fields) {
+        DBInstance.query('select * from f_article where delete_by is null', function (err, rows, fields) {
             if (err) {
                 return callback(err)
             }
@@ -22,7 +14,7 @@ var UserController = {
         });
     },
     queryById: function query(id, callback) {
-        DBInstance.query('select * from f_user where delete_by is null and id = ?', id, function (err, rows, fields) {
+        DBInstance.query('select * from f_article where delete_by is null and id = ?', id, function (err, rows, fields) {
 
             if (err) {
                 return callback(err)
@@ -38,7 +30,7 @@ var UserController = {
         }
     },
     query: function (callback) {
-        DBInstance.query('select * from f_user where delete_by is null', function (err, rows, fields) {
+        DBInstance.query('select * from f_article where delete_by is null', function (err, rows, fields) {
             if (err) {
                 return callback(err)
             }
@@ -49,7 +41,7 @@ var UserController = {
         //todo change req to operate
         model.update_at = DateUtil.getSqlDate();
         model.update_by = req.session.user.login;
-        DBInstance.query('update f_user set ? where id = ?', [model, model.id], function (err, rows, fields) {
+        DBInstance.query('update f_article set ? where id = ?', [model, model.id], function (err, rows, fields) {
             if (err) {
                 return callback(err)
             }
@@ -60,7 +52,7 @@ var UserController = {
         model.id = StringUtil.getId();
         model.create_at = DateUtil.getSqlDate();
         model.create_by = req.session.user.login;
-        DBInstance.query('insert f_user set ?', [model, model.id], function (err, rows, fields) {
+        DBInstance.query('insert f_article set ?', [model, model.id], function (err, rows, fields) {
             if (err) {
                 return callback(err)
             }
@@ -72,7 +64,7 @@ var UserController = {
             delete_at: DateUtil.getSqlDate(),
             delete_by: req.session.user.login
         };
-        DBInstance.query('update f_user set ? where id = ?', [model, id], function (err, rows, fields) {
+        DBInstance.query('update f_article set ? where id = ?', [model, id], function (err, rows, fields) {
             if (err) {
                 return callback(err)
             }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <% include common/head.ejs %>
+</head>
+
+<body>
+<% include common/nav.ejs %>
+<div class="container">
+    <ol class="breadcrumb pull-right">
+        <li><a href="/admin">主页</a></li>
+        <li class="active">文章列表</li>
+    </ol>
+</div>
+<div class="container main">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a class="btn btn-primary" href="/admin/article/0"><span class="glyphicon glyphicon-plus"></span> 新增</a>
+            <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span> 搜索</button>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>分类</th>
+                    <th>名称</th>
+                    <th>作者</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%
+                if(data && data.length > 0 ) {
+                    data.forEach(function (item) {
+                %>
+                <tr>
+                    <td><%= item.id %></td>
+                    <td><%= item.article_category_id %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.author %></td>
+                    <td>
+                        <a href="/admin/article/<%= item.id %>" data-toggle="tooltip" data-placement="top" title="编辑"><span class="glyphicon glyphicon-edit"></span></a>
+                        <span class="divider">|</span>
+                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="删除"><span class="glyphicon glyphicon-trash"  data-articleid="<%= item.id %>" data-toggle="modal" data-target="#confirm-modal"></span></a>
+                    </td>
+                </tr>
+                <%
+                    })
+                } else {
+                %>
+                <tr>
+                    <td colspan="100%" align="center">未找到相关记录！</td>
+                </tr>
+                <%
+                }
+                %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="confirm-modal" class="modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">确认删除？</h4>
+            </div>
+            <div class="modal-body" style="text-align: right">
+                <input id="deleteArticleId" type="hidden"/>
+                <button type="button" class="btn btn-default" data-dismiss="modal"> 取消 </button>
+                <button class="btn btn-primary" onclick="articles.deleteArticle()"> 确认 </button>
+            </div>
+        </div>
+    </div>
+</div>
+<% include common/script.ejs %>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+
+        $('#confirm-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var articleid = button.data('articleid');
+            $('#deleteArticleId').val(articleid)
+        })
+    })
+
+    var articles = {
+        deleteArticle: function () {
+            $.ajax({
+                url:'/admin/article/'+$('#deleteArticleId').val(),
+                type:'DELETE',
+                success: function (rs) {
+                    $('#confirm-modal').modal('hide')
+                    if(rs.status){
+                        location.reload()
+                    }else{
+                        console.error(rs)
+                    }
+
+                },
+                error: function (rs) {
+                    console.error(rs)
+                }
+            })
+        }
+    }
+</script>
+</body>
+</html>
