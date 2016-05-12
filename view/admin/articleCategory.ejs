@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <% include common/head.ejs %>
+</head>
+
+<body>
+<% include common/nav.ejs %>
+<div class="container">
+    <ol class="breadcrumb pull-right">
+        <li><a href="/admin">主页</a></li>
+        <li><a href="/admin/articleCategorys">分类列表</a></li>
+        <li class="active">
+            <% if(data.id == 0){ %>
+            新建
+            <% }else{ %>
+            编辑
+            <% } %>
+        </li>
+    </ol>
+</div>
+<div class="container main">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <% if(data.id == 0 ){ %>
+            新建
+            <% }else{ %>
+            编号：<%= data.id %>
+            <% } %>
+        </div>
+        <div class="panel-body">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab-basic" data-toggle="tab">Home</a></li>
+                <% if(data.id != 0) { %>
+                <li><a href="#tab-operate" data-toggle="tab">操作记录</a></li>
+                <% } %>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab-basic" style="padding: 15px 5px">
+
+                    <form class="form-horizontal">
+                        <input id="id" name="id" type="hidden"/>
+                        <div class="form-group col-sm-6">
+                            <label for="parent_id" class="col-sm-3 control-label">父id</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="parent_id" name="parent_id"
+                                       placeholder="parent_id">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="name" class="col-sm-3 control-label">名称</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="name">
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="button" class="btn btn-primary" onclick="o.save()"> 保存</button>
+                                <button type="reset" class="btn btn-default"> 重置</button>
+                                <div class="alert alert-success" hidden></div>
+                                <div class="alert alert-warning" hidden></div>
+                                <div class="alert alert-danger" hidden></div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <% if(data.id != 0) { %>
+                <div class="tab-pane" id="tab-operate" style="padding: 15px 5px">
+
+                    <form class="form-horizontal">
+                        <div class="form-group col-sm-6">
+                            <label for="create_at" class="col-sm-3 control-label">创建日期</label>
+
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    <% if(data.create_at){ %>
+                                    <%= data.create_at %>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="create_by" class="col-sm-3 control-label">创建人</label>
+
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    <% if(data.create_by){ %>
+                                    <%= data.create_by %>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="update_at" class="col-sm-3 control-label">更新日期</label>
+
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    <% if(data.update_at){ %>
+                                    <%= data.update_at %>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="update_by" class="col-sm-3 control-label">更新人</label>
+
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    <% if(data.update_by){ %>
+                                    <%= data.update_by %>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="delete_at" class="col-sm-3 control-label">删除日期</label>
+
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    <% if(data.delete_at){ %>
+                                    <%= data.delete_at %>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="delete_by" class="col-sm-3 control-label">删除人</label>
+
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    <% if(data.delete_by){ %>
+                                    <%= data.delete_by %>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+                <% } %>
+            </div>
+
+        </div>
+    </div>
+</div>
+<% include common/script.ejs %>
+<script>
+    var data = <%-JSON.stringify(data) %>
+</script>
+<script src="/admin/js/articleCategory.js"></script>
+</body>
+</html>

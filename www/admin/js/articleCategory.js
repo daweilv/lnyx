@@ -1,16 +1,14 @@
 var o = {
     save: function () {
         $.ajax({
-            url: '/admin/article',
+            url: '/admin/articleCategory',
             type: 'post',
-            data: {
-                _model: $('form').serialize()
-            },
+            data: {_model: $('form').serialize()},
             success: function (rs) {
                 $('.alert').hide();
                 if (rs.status) {
                     $('.alert.alert-success').show().text('保存成功！');
-                    location.href = '/admin/articles/';
+                    location.href = '/admin/articleCategorys/';
                 } else {
                     console.log(rs.error);
                     $('.alert.alert-danger').show().text(rs.error.toString());
@@ -21,8 +19,6 @@ var o = {
                 $('.alert.alert-warning').show().text('网络异常！');
             }
         })
-    },
-    uploadImgHandler: function () {
 
     },
     init: function () {
@@ -40,14 +36,6 @@ var o = {
                 }
             }
         }
-
-        $('.upload-operate').click(function () {
-            $('.upload-file').click();
-        })
-
-        $('.upload-file').onchange(function () {
-
-        })
     }
 };
 

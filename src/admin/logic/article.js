@@ -1,10 +1,13 @@
+var async = require('async');
 var querystring = require('querystring');
-var ArticleController = require('../controller/article');
+
+var articleController = require('../controller/article');
+var articleCategoryController = require('../controller/articleCategory');
 
 var logic = {
     getArticles: function (req, res, next) {
-        var _rs = {user:req.session.user};
-        ArticleController.queryAll(function (err, rows) {
+        var _rs = {user: req.session.user};
+        articleController.queryAll(function (err, rows) {
             if (err) {
                 console.error(err);
                 return res.end(err)
@@ -14,31 +17,45 @@ var logic = {
         })
     },
     getArticle: function (req, res, next) {
-        var _rs = {user:req.session.user};
+        var _rs = {user: req.session.user};
         var id = req.params.id;
-        if (id == 0) {
-            _rs.data = {id: 0};
-            return res.render('admin/article', _rs);
-        }
-        ArticleController.queryById(id, function (err, rows) {
-            if (err) {
-                console.error(err);
-                return res.end(err)
-            }
 
-            if (rows.length > 0) {
-                _rs.data = rows[0];
-            } else {
-                _rs.data = {};
-            }
+        async.auto({
+            categorys: function (callback) {
+                articleCategoryController.categorySelectTree(function (err, result) {
+                    if (err) {
+                        return callback(err)
+                    }
+                    callback(null, result)
+                })
+            },
+            article: function (callback) {
+                if (id == 0) {
+                    callback(null, {id: 0})
+                } else {
+                    articleController.queryById(id, function (err, rows) {
+                        if (err) {
+                            return callback(err)
+                        }
 
+                        var article = {};
+                        if (rows.length > 0) {
+                            article = rows[0];
+                        }
+                        callback(null, article)
+                    })
+                }
+            }
+        }, function (err, rs) {
+            _rs.categorys = rs.categorys;
+            _rs.data = rs.article;
             res.render('admin/article', _rs);
         })
     },
     saveArticle: function (req, res, next) {
         var _rs = {};
         var _model = querystring.parse(req.body._model);
-        ArticleController.insertOrUpdate(_model, req, function (err, result) {
+        articleController.insertOrUpdate(_model, req, function (err, result) {
             if (err) {
                 _rs.status = false;
                 _rs.error = err;
@@ -53,13 +70,13 @@ var logic = {
     deleteArticle: function (req, res, next) {
         var _rs = {};
         var id = req.params.id;
-        ArticleController.delete(id, req, function (err, result) {
+        articleController.delete(id, req, function (err, result) {
             if (err) {
                 _rs.status = false;
                 _rs.error = err;
                 return res.json(_rs)
             }
-            _rs.data = {id:id};
+            _rs.data = {id: id};
             _rs.status = true;
             res.json(_rs);
         })

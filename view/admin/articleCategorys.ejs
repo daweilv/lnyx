@@ -15,16 +15,14 @@
 <div class="container main">
     <div class="panel panel-default">
         <div class="panel-body">
-            <a class="btn btn-primary" href="/admin/user/0"><span class="glyphicon glyphicon-plus"></span> 新增</a>
+            <a class="btn btn-primary" href="/admin/articleCategory/0"><span class="glyphicon glyphicon-plus"></span> 新增</a>
             <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span> 搜索</button>
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>编号</th>
-                    <th>账号</th>
+                    <th>父级编号</th>
                     <th>名称</th>
-                    <th>状态</th>
-                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -34,11 +32,11 @@
                 %>
                 <tr>
                     <td><%= item.id %></td>
-                    <td><%= item.login %></td>
+                    <td><%= item.parent_id %></td>
                     <td><%= item.name %></td>
                     <td><%= item.status %></td>
                     <td>
-                        <a href="/admin/user/<%= item.id %>" data-toggle="tooltip" data-placement="top" title="编辑"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a href="/admin/articleCategory/<%= item.id %>" data-toggle="tooltip" data-placement="top" title="编辑"><span class="glyphicon glyphicon-edit"></span></a>
                         <span class="divider">|</span>
                         <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="删除"><span class="glyphicon glyphicon-trash"  data-deleteid="<%= item.id %>" data-toggle="modal" data-target="#confirm-modal"></span></a>
                     </td>
@@ -68,7 +66,7 @@
             <div class="modal-body" style="text-align: right">
                 <input id="deleteid" type="hidden"/>
                 <button type="button" class="btn btn-default" data-dismiss="modal"> 取消 </button>
-                <button class="btn btn-primary" onclick="users.deleteUser()"> 确认 </button>
+                <button class="btn btn-primary" onclick="articleCategorys.deleteArticleCategorys()"> 确认 </button>
             </div>
         </div>
     </div>
@@ -85,10 +83,10 @@
         })
     })
 
-    var users = {
-        deleteUser: function () {
+    var articleCategorys = {
+        deleteArticleCategorys: function () {
             $.ajax({
-                url:'/admin/user/'+$('#deleteid').val(),
+                url:'/admin/articleCategory/'+$('#deleteid').val(),
                 type:'DELETE',
                 success: function (rs) {
                     $('#confirm-modal').modal('hide')

@@ -40,7 +40,7 @@
                     <td>
                         <a href="/admin/article/<%= item.id %>" data-toggle="tooltip" data-placement="top" title="编辑"><span class="glyphicon glyphicon-edit"></span></a>
                         <span class="divider">|</span>
-                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="删除"><span class="glyphicon glyphicon-trash"  data-articleid="<%= item.id %>" data-toggle="modal" data-target="#confirm-modal"></span></a>
+                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="删除"><span class="glyphicon glyphicon-trash"  data-deleteid="<%= item.id %>" data-toggle="modal" data-target="#confirm-modal"></span></a>
                     </td>
                 </tr>
                 <%
@@ -66,7 +66,7 @@
                 <h4 class="modal-title">确认删除？</h4>
             </div>
             <div class="modal-body" style="text-align: right">
-                <input id="deleteArticleId" type="hidden"/>
+                <input id="deleteid" type="hidden"/>
                 <button type="button" class="btn btn-default" data-dismiss="modal"> 取消 </button>
                 <button class="btn btn-primary" onclick="articles.deleteArticle()"> 确认 </button>
             </div>
@@ -80,15 +80,15 @@
 
         $('#confirm-modal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
-            var articleid = button.data('articleid');
-            $('#deleteArticleId').val(articleid)
+            var deleteid = button.data('deleteid');
+            $('#deleteid').val(deleteid)
         })
     })
 
     var articles = {
         deleteArticle: function () {
             $.ajax({
-                url:'/admin/article/'+$('#deleteArticleId').val(),
+                url:'/admin/article/'+$('#deleteid').val(),
                 type:'DELETE',
                 success: function (rs) {
                     $('#confirm-modal').modal('hide')
