@@ -32,24 +32,29 @@ td span.divider {
     color: #666;
 }
 
-.upload-img-box{
+.upload-img-box {
     display: table;
     border: 1px solid #ddd;
     border-radius: 4px;
-    height: 130px;
     width: 100%;
     padding: 4px;
     text-align: center;
     vertical-align: middle;
 }
 
+.upload-img-box .upload-img {
+    cursor: pointer;
+    max-width: 100%
+}
+
 .upload-img-box .upload-operate {
+    padding: 5px;
     display: table-cell;
     vertical-align: middle;
     cursor: pointer;
 }
 
-.upload-img-box .upload-operate .upload-tip-img{
+.upload-img-box .upload-operate .upload-tip-img {
     font-size: 42px;
     color: #CCCCCC;
 }
@@ -58,11 +63,9 @@ td span.divider {
     color: #777;
     font-size: 12px;
 }
+.upload-img-box .upload-operate:hover .upload-tip {
+    text-decoration: underline;
+}
 .upload-img-box .upload-file {
     display: none;
-}
-.upload-img-box .upload-img {
-    display: inline-block;
-    max-height: 100%;
-    width: auto;
 }

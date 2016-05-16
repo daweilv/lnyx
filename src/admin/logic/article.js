@@ -7,12 +7,38 @@ var articleCategoryController = require('../controller/articleCategory');
 var logic = {
     getArticles: function (req, res, next) {
         var _rs = {user: req.session.user};
-        articleController.queryAll(function (err, rows) {
-            if (err) {
-                console.error(err);
-                return res.end(err)
+        async.auto({
+            lastArticles: function () {
+
+
+            },
+            categorys: function (callback) {
+                articleCategoryController.categorys(function (err, result) {
+                    if (err) {
+                        return callback(err)
+                    }
+                    var categorysParis = {};
+                    result.forEach(function (item) {
+                        categorysParis[item.id] = item.name
+                    });
+
+                    callback(null, categorysParis)
+                })
+            },
+            articles: function (callback) {
+                articleController.queryAll(function (err, rows) {
+                    if (err) {
+                        return callback(err)
+                    }
+                    callback(null, rows)
+                })
             }
-            _rs.data = rows;
+        }, function (err, rs) {
+            if(err) {
+                console.log(err);
+            }
+            _rs.categorys = rs.categorys;
+            _rs.data = rs.articles;
             res.render('admin/articles', _rs);
         })
     },
@@ -47,6 +73,10 @@ var logic = {
                 }
             }
         }, function (err, rs) {
+            if(err){
+                console.log(err);
+
+            }
             _rs.categorys = rs.categorys;
             _rs.data = rs.article;
             res.render('admin/article', _rs);
@@ -55,6 +85,11 @@ var logic = {
     saveArticle: function (req, res, next) {
         var _rs = {};
         var _model = querystring.parse(req.body._model);
+
+        if(!_model.is_show_cover){
+            _model.is_show_cover = 0;
+        }
+
         articleController.insertOrUpdate(_model, req, function (err, result) {
             if (err) {
                 _rs.status = false;

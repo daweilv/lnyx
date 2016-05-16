@@ -32,7 +32,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'www')));
 
 app.use('/', home);
-app.use('/admin', admin);
+app.use('/', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

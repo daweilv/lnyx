@@ -1,3 +1,6 @@
+var path = require('path');
+var rootPath = path.join(path.dirname(require.main.filename),'..');
+
 var config = {
     db: {
         acquireTimeout: 1000,
@@ -18,7 +21,10 @@ var config = {
         pass: '123456'
     },
     path: {
-        log:''
+        root: rootPath,
+        webroot:path.join(rootPath,'/www'),
+        file: path.join(rootPath,'/www/file'),
+        log: ''
     }
 
 };

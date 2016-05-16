@@ -5,6 +5,6 @@ var auth = require('../../common/auth');
 var homeLogic = require('../logic/home');
 
 router.get('/', homeLogic.goIndex);
-router.get('/article', homeLogic.goArticle);
+router.get('/article/:id', homeLogic.goArticle);
 
 module.exports = router;

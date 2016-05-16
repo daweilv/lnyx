@@ -21,8 +21,8 @@
                 <thead>
                 <tr>
                     <th>编号</th>
-                    <th>分类</th>
                     <th>名称</th>
+                    <th>分类</th>
                     <th>作者</th>
                     <th>操作</th>
                 </tr>
@@ -34,8 +34,8 @@
                 %>
                 <tr>
                     <td><%= item.id %></td>
-                    <td><%= item.article_category_id %></td>
                     <td><%= item.name %></td>
+                    <td><%= categorys[item.article_category_id] %></td>
                     <td><%= item.author %></td>
                     <td>
                         <a href="/admin/article/<%= item.id %>" data-toggle="tooltip" data-placement="top" title="编辑"><span class="glyphicon glyphicon-edit"></span></a>

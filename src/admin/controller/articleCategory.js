@@ -17,7 +17,14 @@ var articleCategory = {
     },
     queryById: function query(id, callback) {
         DBInstance.query('select * from f_article_category where delete_by is null and id = ?', id, function (err, rows, fields) {
-
+            if (err) {
+                return callback(err)
+            }
+            callback(null, rows);
+        });
+    },
+    queryByName: function query(name, callback) {
+        DBInstance.query('select * from f_article_category where delete_by is null and name = ?', name, function (err, rows, fields) {
             if (err) {
                 return callback(err)
             }
@@ -72,6 +79,14 @@ var articleCategory = {
             }
             callback(null, rows);
         });
+    },
+    categorys : function (callback) {
+        DBInstance.query('select * from f_article_category where delete_by is null order by seq', function (err, rows) {
+            if (err) {
+                return callback(err)
+            }
+            callback(null,rows)
+        })
     },
     categorySelectTree : function (callback) {
         DBInstance.query('select * from f_article_category where delete_by is null order by seq', function (err, rows) {
