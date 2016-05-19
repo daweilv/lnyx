@@ -16,7 +16,7 @@ var logic = {
                 var limit = 4;
                 articleController.getLatestArticle(limit, function (err, rows) {
                     if(err) {
-                        callback(err)
+                        return callback(err)
                     }
                     callback(null, rows);
                 })
@@ -24,7 +24,7 @@ var logic = {
             categorys: function (callback) {
                 articleCategoryController.categorys(function (err, rows) {
                     if(err) {
-                        callback(err)
+                        return callback(err)
                     }
 
                     callback(null,rows)
@@ -33,7 +33,7 @@ var logic = {
             article: function (callback) {
                 articleController.queryBySeoURL(id, function (err, rows) {
                     if(err) {
-                        callback(err)
+                        return callback(err)
                     }
 
                     if(rows && rows.length > 0 ) {
@@ -56,7 +56,7 @@ var logic = {
             res.render('home/article', _rs);
         });
     },
-    goCategorys: function (req, res, next) {
+    goCategory: function (req, res, next) {
         var _rs = {};
         var category_name = req.params.category_name;
 
@@ -65,7 +65,7 @@ var logic = {
                 var limit = 4;
                 articleController.getLatestArticle(limit, function (err, rows) {
                     if(err) {
-                        callback(err)
+                        return callback(err)
                     }
                     callback(null, rows);
                 })
@@ -73,7 +73,7 @@ var logic = {
             categorys: function (callback) {
                 articleCategoryController.categorys(function (err, rows) {
                     if(err) {
-                        callback(err)
+                        return callback(err)
                     }
 
                     callback(null,rows)
@@ -82,7 +82,7 @@ var logic = {
             articles: function (callback) {
                 articleController.queryByCategoryName(category_name, function (err, rows) {
                     if(err) {
-                        callback(err)
+                        return callback(err)
                     }
                     callback(null,rows)
 
@@ -95,11 +95,12 @@ var logic = {
 
             _rs.status = true;
             _rs.data = {};
-            _rs.data.latestArticles = latestArticles;
-            _rs.data.categorys = categorys;
-            _rs.data.articles = articles;
+            _rs.data.latestArticles = rs.latestArticles;
+            _rs.data.categorys = rs.categorys;
+            _rs.data.articles = rs.articles;
+            _rs.data.category_name = category_name;
 
-            res.render('/home/category', _rs);
+            res.render('home/category', _rs);
         })
     }
 

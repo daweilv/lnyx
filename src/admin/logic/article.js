@@ -8,10 +8,6 @@ var logic = {
     getArticles: function (req, res, next) {
         var _rs = {user: req.session.user};
         async.auto({
-            lastArticles: function () {
-
-
-            },
             categorys: function (callback) {
                 articleCategoryController.categorys(function (err, result) {
                     if (err) {

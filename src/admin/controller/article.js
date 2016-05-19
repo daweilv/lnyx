@@ -3,7 +3,7 @@ var StringUtil = require('../../common/util/StringUtil');
 var DateUtil = require('../../common/util/DateUtil');
 
 
-var UserController = {
+var ArticleController = {
     queryAll: function (callback) {
 
         DBInstance.query('select * from f_article where delete_by is null order by create_at desc', function (err, rows, fields) {
@@ -13,7 +13,7 @@ var UserController = {
             callback(null, rows);
         });
     },
-    queryById: function query(id, callback) {
+    queryById: function (id, callback) {
         DBInstance.query('select * from f_article where delete_by is null and id = ?', id, function (err, rows, fields) {
 
             if (err) {
@@ -53,7 +53,7 @@ var UserController = {
             callback(null, rows);
         });
     },
-    update: function update(model, req, callback) {
+    update: function (model, req, callback) {
         //todo change req to operate
         model.update_at = DateUtil.getSqlDate();
         model.update_by = req.session.user.login;
@@ -64,7 +64,7 @@ var UserController = {
             callback(null, model);
         });
     },
-    insert: function insert(model, req, callback) {
+    insert: function (model, req, callback) {
         model.id = StringUtil.getId();
         model.create_at = DateUtil.getSqlDate();
         model.create_by = req.session.user.login;
@@ -75,7 +75,7 @@ var UserController = {
             callback(null, model);
         });
     },
-    delete: function delete_(id, req, callback) {
+    delete: function (id, req, callback) {
         var model = {
             delete_at: DateUtil.getSqlDate(),
             delete_by: req.session.user.login
@@ -97,4 +97,4 @@ var UserController = {
     }
 };
 
-module.exports = UserController;
+module.exports = ArticleController;
