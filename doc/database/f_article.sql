@@ -6,6 +6,7 @@ CREATE TABLE `f_article` (
   `content` text NOT NULL COMMENT '内容',
   `cover` varchar(100) NOT NULL COMMENT '封面',
   `is_show_cover` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否显示封面{0:不显示,1:显示}',
+  `is_show_comment` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否显示评论',
   `tag` varchar(100) DEFAULT NULL COMMENT '标签',
   `seo_url` varchar(200) DEFAULT NULL COMMENT 'SEO链接',
   `seo_title` varchar(200) DEFAULT NULL COMMENT 'SEO描述',

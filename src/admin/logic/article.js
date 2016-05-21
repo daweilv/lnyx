@@ -85,6 +85,9 @@ var logic = {
         if(!_model.is_show_cover){
             _model.is_show_cover = 0;
         }
+        if(!_model.is_show_comment){
+            _model.is_show_comment = 0;
+        }
 
         articleController.insertOrUpdate(_model, req, function (err, result) {
             if (err) {

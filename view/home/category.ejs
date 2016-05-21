@@ -18,32 +18,12 @@
 </head>
 
 <body>
-<nav class="navbar navbar-blog">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Lnyx Blog</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Blog <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Archive</a></li>
-        <li><a href="#">Github</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<% include common/nav.ejs %>
 
 <div class="container main">
   <div class="row">
     <div class="col-sm-3 hidden-xs sidebar">
-      <div class="sidebar-title">Search our Blog</div>
+      <div class="sidebar-title">Search</div>
 
       <form action="//google.com/search" method="get" accept-charset="UTF-8" target="_blank">
         <div class="input-group">
@@ -82,47 +62,65 @@
 
     <div class="col-sm-9 articles">
       <div class="row">
-        <div class="col-md-6 article-box">
-            <div class="article-cover" style="background-image: url(http://localhost:3000/file/upload_9d6716ae8f7510c3ed15419b85b88a97.jpg)">
-            </div>
+        <div class="col-sm-6 article-box">
+            <a href="">
+              <div class="article-cover" style="background-image: url(http://image-2.plusman.cn/image/callbacks_promises.png?imageView2/2/w/920/interlace/0/q/100)">
+              </div>
+            </a>
             <div class="article-tips">
-              <div class="article-category">移动开发</div>
+              <div class="article-category"><a href="">移动开发</a></div>
               <div class="article-date">2016-05-19</div>
             </div>
-            <div class="article-title">无线端的弹幕实现方案
+            <div class="article-title"><a href="">无线端的弹幕实现方案</a>
             </div>
             <div class="article-brief">前段时间做了游戏的相关业务，其中弹幕相关的内容自成一块。弹幕已经不只是最初的视频弹幕了，战火已经烧到了评论区，烧到了手机淘宝的首页搜索结果。作为一种近几年迅速燃起的内容</div>
         </div>
-        <div class="col-md-6 article-box">
-          <div class="article-cover" style="background-image: url(http://localhost:3000/file/upload_9d6716ae8f7510c3ed15419b85b88a97.jpg)">
-          </div>
+        <div class="col-sm-6 article-box">
+          <a href="">
+            <div class="article-cover" style="background-image: url(http://image-2.plusman.cn/image/callbacks_promises.png?imageView2/2/w/920/interlace/0/q/100)">
+            </div>
+          </a>
           <div class="article-tips">
-            <div class="article-category">移动开发</div>
+            <div class="article-category"><a href="">移动开发</a></div>
             <div class="article-date">2016-05-19</div>
           </div>
-          <div class="article-title">无线端的弹幕实现方案
+          <div class="article-title"><a href="">无线端的弹幕实现方案</a>
           </div>
           <div class="article-brief">前段时间做了游戏的相关业务，其中弹幕相关的内容自成一块。弹幕已经不只是最初的视频弹幕了，战火已经烧到了评论区，烧到了手机淘宝的首页搜索结果。作为一种近几年迅速燃起的内容</div>
-        </div>
-        <div class="col-md-6 article-box">
-          <div class="article-cover" style="background-image: url(http://localhost:3000/file/upload_9d6716ae8f7510c3ed15419b85b88a97.jpg)">
-          </div>
+        </div><div class="col-sm-6 article-box">
+          <a href="">
+            <div class="article-cover" style="background-image: url(http://image-2.plusman.cn/image/callbacks_promises.png?imageView2/2/w/920/interlace/0/q/100)">
+            </div>
+          </a>
           <div class="article-tips">
-            <div class="article-category">移动开发</div>
+            <div class="article-category"><a href="">移动开发</a></div>
             <div class="article-date">2016-05-19</div>
           </div>
-          <div class="article-title">无线端的弹幕实现方案
+          <div class="article-title"><a href="">无线端的弹幕实现方案</a>
           </div>
           <div class="article-brief">前段时间做了游戏的相关业务，其中弹幕相关的内容自成一块。弹幕已经不只是最初的视频弹幕了，战火已经烧到了评论区，烧到了手机淘宝的首页搜索结果。作为一种近几年迅速燃起的内容</div>
-        </div>
-        <div class="col-md-6 article-box">
-          <div class="article-cover" style="background-image: url(http://localhost:3000/file/upload_9d6716ae8f7510c3ed15419b85b88a97.jpg)">
-          </div>
+        </div><div class="col-sm-6 article-box">
+          <a href="">
+            <div class="article-cover" style="background-image: url(http://image-2.plusman.cn/image/callbacks_promises.png?imageView2/2/w/920/interlace/0/q/100)">
+            </div>
+          </a>
           <div class="article-tips">
-            <div class="article-category">移动开发</div>
+            <div class="article-category"><a href="">移动开发</a></div>
             <div class="article-date">2016-05-19</div>
           </div>
-          <div class="article-title">无线端的弹幕实现方案
+          <div class="article-title"><a href="">无线端的弹幕实现方案</a>
+          </div>
+          <div class="article-brief">前段时间做了游戏的相关业务，其中弹幕相关的内容自成一块。弹幕已经不只是最初的视频弹幕了，战火已经烧到了评论区，烧到了手机淘宝的首页搜索结果。作为一种近几年迅速燃起的内容</div>
+        </div><div class="col-sm-6 article-box">
+          <a href="">
+            <div class="article-cover" style="background-image: url(http://image-2.plusman.cn/image/callbacks_promises.png?imageView2/2/w/920/interlace/0/q/100)">
+            </div>
+          </a>
+          <div class="article-tips">
+            <div class="article-category"><a href="">移动开发</a></div>
+            <div class="article-date">2016-05-19</div>
+          </div>
+          <div class="article-title"><a href="">无线端的弹幕实现方案</a>
           </div>
           <div class="article-brief">前段时间做了游戏的相关业务，其中弹幕相关的内容自成一块。弹幕已经不只是最初的视频弹幕了，战火已经烧到了评论区，烧到了手机淘宝的首页搜索结果。作为一种近几年迅速燃起的内容</div>
         </div>
@@ -133,16 +131,10 @@
   </div>
 </div>
 
-<div class="footer">
-  <div class="container">
-    Designed and built with all the love in the world by <a href="https://github.com/code4funlnyx/" target="_blank">@lnyx</a>.
-  </div>
-</div>
+<% include common/footer.ejs%>
 
 
-<script src="/module/jquery/jquery.min.js"></script>
-<script src="/module/bootstrap/js/bootstrap.min.js"></script>
-<script id="dsq-count-scr" src="//lnyx.disqus.com/count.js" async></script>
+<% include common/script.ejs%>
 
 </body>
 </html>

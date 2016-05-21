@@ -18,32 +18,12 @@
 </head>
 
 <body>
-<nav class="navbar navbar-blog">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Lnyx Blog</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Blog <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Archive</a></li>
-        <li><a href="#">Github</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<% include common/nav.ejs %>
 
 <div class="container main">
   <div class="row">
     <div class="col-sm-3 hidden-xs sidebar">
-      <div class="sidebar-title">Search our Blog</div>
+      <div class="sidebar-title">Search</div>
 
       <form action="//google.com/search" method="get" accept-charset="UTF-8" target="_blank">
         <div class="input-group">
@@ -98,46 +78,46 @@
         <div class="post-content">
            <%-data.article.content%>
         </div>
-        <div class="post-comments">
-          <a id="comments"></a>
-          <h4>Comments</h4>
-          <div id="disqus_thread"></div>
-          <script>
-            /**
-             * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-             * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-             */
-            /*
-             var disqus_config = function () {
-             this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-             this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-             };
-             */
-            (function() { // DON'T EDIT BELOW THIS LINE
-              var d = document, s = d.createElement('script');
+        <% if(data.article.is_show_comment){%>
+      <div class="post-comments">
+        <a id="comments"></a>
+        <h4>Comments</h4>
+        <div id="disqus_thread"></div>
+        <script>
+          /**
+           * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+           * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+           */
+          /*
+           var disqus_config = function () {
+           this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+           this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+           };
+           */
+          (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
 
-              s.src = '//lnyx.disqus.com/embed.js';
+            s.src = '//lnyx.disqus.com/embed.js';
 
-              s.setAttribute('data-timestamp', +new Date());
-              (d.head || d.body).appendChild(s);
-            })();
-          </script>
-          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-        </div>
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+        <%}%>
+
     </div>
   </div>
 </div>
 
-<div class="footer">
-  <div class="container">
-    Designed and built with all the love in the world by <a href="https://github.com/code4funlnyx/" target="_blank">@lnyx</a>.
-  </div>
-</div>
+<% include common/footer.ejs%>
 
 
-<script src="/module/jquery/jquery.min.js"></script>
-<script src="/module/bootstrap/js/bootstrap.min.js"></script>
+<% include common/script.ejs%>
+<% if(data.article.is_show_comment){%>
 <script id="dsq-count-scr" src="//lnyx.disqus.com/count.js" async></script>
+<%}%>
 
 </body>
 </html>

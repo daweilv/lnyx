@@ -8,7 +8,7 @@ var session = require('express-session');
 //var RedisStore = require('connect-redis')(session);
 
 var config = require('./src/common/config');
-var home = require('./src/home/route');
+var blog = require('./src/blog/route');
 var admin = require('./src/admin/route');
 
 var app = express();
@@ -31,7 +31,7 @@ app.use(session({
 }));
 app.use(express.static(path.join(__dirname, 'www')));
 
-app.use('/', home);
+app.use('/', blog);
 app.use('/', admin);
 
 // catch 404 and forward to error handler

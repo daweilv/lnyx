@@ -211,6 +211,7 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
     margin-top: 50px;
     padding: 15px 0;
     border-top: 2px dotted #CCC;
+    background: url(../img/page-background.png);
 }
 .footer .container{
     text-align: center;
@@ -275,20 +276,56 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
     }
 }
 .articles {
-    padding: 30px;
+    padding: 35px;
     background-color: #ffffff;
 }
 
 .article-box {
-    padding: 15px;
+    padding: 15px 10px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
+.article-box:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
 .article-box .article-cover {
     width: 100%;
     height:0;
-    padding-bottom: 61.8%;
+    padding-bottom: 56%;
     background-size: cover;
     background-position: center;
     margin-bottom: 10px;
 }
 
+.article-box .article-tips .article-category {
+    display:inline-block;
+}
+.article-box .article-tips .article-category a{
+    color: #4f8db3;
+}
+.article-box .article-tips .article-category a:hover{
+    text-decoration: none;
+}
+.article-box .article-tips .article-date {
+    color: #bbb;
+    display:inline-block;
+}
+
+.article-box .article-title {
+    padding-bottom: 5px;
+}
+
+.article-box .article-title a{
+    font-size: 22px;
+    color: #535b60;
+}
+.article-box .article-title a{
+    text-decoration: none;
+}
+.article-box .article-title a:hover{
+    color: #4f8db3;
+}
+.article-box .article-brief {
+    color: #aaa;
+    padding-bottom: 5px;
+}
