@@ -5,7 +5,32 @@ var articleCategoryController = require('../../admin/controller/articleCategory'
 
 var logic = {
     goIndex: function (req, res, next) {
-        res.render('home/index', {title: 'Express'});
+        var _rs = {};
+
+        async.auto({
+            latestArticles: function (callback) {
+                var limit = 4;
+                articleController.getLatestArticle(limit, callback)
+            },
+            categorys: function (callback) {
+                articleCategoryController.categorys(callback)
+            },
+            articles: function (callback) {
+                articleController.queryAll(callback)
+            }
+        }, function (err, rs) {
+            if(err) {
+                return console.error(err)
+            }
+
+            _rs.status = true;
+            _rs.data = {};
+            _rs.data.latestArticles = rs.latestArticles;
+            _rs.data.categorys = rs.categorys;
+            _rs.data.articles = rs.articles;
+
+            res.render('blog/category', _rs);
+        })
     },
     goArticle: function (req, res, next) {
         var _rs = {};
@@ -14,21 +39,10 @@ var logic = {
         async.auto({
             latestArticles: function (callback) {
                 var limit = 4;
-                articleController.getLatestArticle(limit, function (err, rows) {
-                    if(err) {
-                        return callback(err)
-                    }
-                    callback(null, rows);
-                })
+                articleController.getLatestArticle(limit, callback)
             },
             categorys: function (callback) {
-                articleCategoryController.categorys(function (err, rows) {
-                    if(err) {
-                        return callback(err)
-                    }
-
-                    callback(null,rows)
-                })
+                articleCategoryController.categorys(callback)
             },
             article: function (callback) {
                 articleController.queryBySeoURL(id, function (err, rows) {
@@ -53,7 +67,7 @@ var logic = {
             _rs.data.article = rs.article;
             _rs.data.categorys = rs.categorys;
 
-            res.render('home/article', _rs);
+            res.render('blog/article', _rs);
         });
     },
     goCategory: function (req, res, next) {
@@ -63,30 +77,13 @@ var logic = {
         async.auto({
             latestArticles: function (callback) {
                 var limit = 4;
-                articleController.getLatestArticle(limit, function (err, rows) {
-                    if(err) {
-                        return callback(err)
-                    }
-                    callback(null, rows);
-                })
+                articleController.getLatestArticle(limit, callback)
             },
             categorys: function (callback) {
-                articleCategoryController.categorys(function (err, rows) {
-                    if(err) {
-                        return callback(err)
-                    }
-
-                    callback(null,rows)
-                })
+                articleCategoryController.categorys(callback)
             },
             articles: function (callback) {
-                articleController.queryByCategoryName(category_name, function (err, rows) {
-                    if(err) {
-                        return callback(err)
-                    }
-                    callback(null,rows)
-
-                })
+                articleController.queryByCategoryName(category_name, callback)
             }
         }, function (err, rs) {
             if(err) {
@@ -100,7 +97,7 @@ var logic = {
             _rs.data.articles = rs.articles;
             _rs.data.category_name = category_name;
 
-            res.render('home/category', _rs);
+            res.render('blog/category', _rs);
         })
     }
 

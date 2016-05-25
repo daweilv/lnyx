@@ -1,5 +1,6 @@
 var o = {
     save: function () {
+        $('#brief').val($('#content').text().substring(0,150));
         $.ajax({
             url: '/admin/article',
             type: 'post',

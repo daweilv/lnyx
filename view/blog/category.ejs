@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/common/img/favicon.ico">
+  <title><%= data.category_name ? data.category_name+' | ':''%>lnyx blog | 大卫的个人博客</title>
+  <link href="/module/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/blog/css/article.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<% include common/nav.ejs %>
+
+<div class="container main">
+  <div class="row">
+    <div class="col-sm-3 hidden-xs sidebar">
+      <div class="sidebar-title">Search</div>
+
+      <form action="//google.com/search" method="get" accept-charset="UTF-8" target="_blank">
+        <div class="input-group">
+          <input class="form-control" name="q" type="text">
+          <input type="hidden" name="sitesearch" value="http://dawei.lv">
+          <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Search</button>
+          </span>
+        </div>
+      </form>
+      <div class="sidebar-title">Recent Posts</div>
+      <ul class="recent-posts">
+        <% data.latestArticles.forEach(function (article) {
+        %>
+        <li><a href="/article/<%=article.seo_url%>"><%=article.name%></a></li>
+        <%
+        })%>
+      </ul>
+      <div class="sidebar-title">Categories</div>
+      <ul class="categories">
+        <% data.categorys.forEach(function (category) {
+        %>
+        <li><a href="/category/<%=category.id%>"><%=category.name%></a></li>
+        <%
+        })%>
+      </ul>
+      <!--<div class="sidebar-title">Archive</div>-->
+      <!--<ul class="archive">-->
+        <!--<li><a href="#">January 2013</a></li>-->
+        <!--<li><a href="#">February 2013</a></li>-->
+        <!--<li><a href="#">March 2013</a></li>-->
+        <!--<li><a href="#">April 2013</a></li>-->
+        <!--<li><a href="#">May 2013</a></li>-->
+      <!--</ul>-->
+    </div>
+
+    <div class="col-sm-9 articles">
+      <div class="row">
+        <%
+        if(data.articles && data.articles.length > 0){
+          data.articles.forEach(function (article) {
+        %>
+        <div class="col-sm-6 article-box">
+          <a href="/article/<%=article.seo_url%>">
+            <div class="article-cover" style="background-image: url(<%=article.cover%>)">
+            </div>
+          </a>
+          <div class="article-tips">
+            <div class="article-category"><a href="/article/<%=article.seo_url%>"><%=article.article_category_id%></a></div>
+            <div class="article-date"><%=article.create_at.substring(0,9)%></div>
+          </div>
+          <div class="article-title"><a href="/article/<%=article.seo_url%>"><%=article.name%></a>
+          </div>
+          <div class="article-brief"><%=article.content%></div>
+        </div>
+        <%
+          })
+        }
+        %>
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<% include common/footer.ejs%>
+
+
+<% include common/script.ejs%>
+
+</body>
+</html>
