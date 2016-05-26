@@ -30,6 +30,7 @@ var logic = {
             _rs.data.categorys = rs.categorys;
             _rs.data.categorysPair = CommonConverter.Array2Obj(rs.categorys, 'id', 'name');
             _rs.data.articles = rs.articles;
+            _rs.data.current_category_id = 0;
 
             res.render('blog/category', _rs);
         })
@@ -68,6 +69,8 @@ var logic = {
             _rs.data.latestArticles = rs.latestArticles;
             _rs.data.article = rs.article;
             _rs.data.categorys = rs.categorys;
+            _rs.data.category_id = rs.article.category_id;
+            _rs.data.current_category_id = rs.article.category_id;
 
             res.render('blog/article', _rs);
         });
@@ -98,7 +101,7 @@ var logic = {
             _rs.data.categorys = rs.categorys;
             _rs.data.categorysPair = CommonConverter.Array2Obj(rs.categorys, 'id', 'name');
             _rs.data.articles = rs.articles;
-            _rs.data.category_name = category_name;
+            _rs.data.current_category_id = CommonConverter.getIdByName(rs.categorys, category_name);
 
             res.render('blog/category', _rs);
         })

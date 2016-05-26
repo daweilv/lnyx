@@ -12,8 +12,13 @@
 
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">主页</a></li>
-                <li><a href="#">Archive</a></li>
+                <li <% if(data.current_category_id==0){%> class="active" <%}%>><a href="/">主页</a></li>
+                <% data.categorys.forEach(function (category) {
+                    var active = category.id == data.current_category_id ? ' class="active"':'';
+                %>
+                <li <%- active%>><a href="/category/<%=category.name%>"><%=category.name%></a></li>
+                <%
+                })%>
                 <li><a href="https://github.com/code4funlnyx/">Github</a></li>
             </ul>
         </div>
