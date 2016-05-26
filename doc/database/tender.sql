@@ -1,0 +1,6 @@
+CREATE TABLE `tender` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `target` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;

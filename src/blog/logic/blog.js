@@ -2,6 +2,7 @@ var async = require('async');
 
 var articleController = require('../../admin/controller/article');
 var articleCategoryController = require('../../admin/controller/articleCategory');
+var CommonConverter = require('../../common/util/CommonConverter');
 
 var logic = {
     goIndex: function (req, res, next) {
@@ -27,6 +28,7 @@ var logic = {
             _rs.data = {};
             _rs.data.latestArticles = rs.latestArticles;
             _rs.data.categorys = rs.categorys;
+            _rs.data.categorysPair = CommonConverter.Array2Obj(rs.categorys, 'id', 'name');
             _rs.data.articles = rs.articles;
 
             res.render('blog/category', _rs);
@@ -94,6 +96,7 @@ var logic = {
             _rs.data = {};
             _rs.data.latestArticles = rs.latestArticles;
             _rs.data.categorys = rs.categorys;
+            _rs.data.categorysPair = CommonConverter.Array2Obj(rs.categorys, 'id', 'name');
             _rs.data.articles = rs.articles;
             _rs.data.category_name = category_name;
 

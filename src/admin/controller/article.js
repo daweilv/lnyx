@@ -20,7 +20,7 @@ var ArticleController = {
         });
     },
     queryByCategoryName: function (category_name, callback) {
-        DBInstance.query('select id,name,seo_url from f_article where delete_by is null and article_category_id = (select id from f_article_category where name = ?)', category_name, function (err, rows) {
+        DBInstance.query('select * from f_article where delete_by is null and article_category_id = (select id from f_article_category where name = ?)', category_name, function (err, rows) {
             callback(err, rows);
         });
     },

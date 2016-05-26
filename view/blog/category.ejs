@@ -22,43 +22,7 @@
 
 <div class="container main">
   <div class="row">
-    <div class="col-sm-3 hidden-xs sidebar">
-      <div class="sidebar-title">Search</div>
-
-      <form action="//google.com/search" method="get" accept-charset="UTF-8" target="_blank">
-        <div class="input-group">
-          <input class="form-control" name="q" type="text">
-          <input type="hidden" name="sitesearch" value="http://dawei.lv">
-          <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit">Search</button>
-          </span>
-        </div>
-      </form>
-      <div class="sidebar-title">Recent Posts</div>
-      <ul class="recent-posts">
-        <% data.latestArticles.forEach(function (article) {
-        %>
-        <li><a href="/article/<%=article.seo_url%>"><%=article.name%></a></li>
-        <%
-        })%>
-      </ul>
-      <div class="sidebar-title">Categories</div>
-      <ul class="categories">
-        <% data.categorys.forEach(function (category) {
-        %>
-        <li><a href="/category/<%=category.id%>"><%=category.name%></a></li>
-        <%
-        })%>
-      </ul>
-      <!--<div class="sidebar-title">Archive</div>-->
-      <!--<ul class="archive">-->
-        <!--<li><a href="#">January 2013</a></li>-->
-        <!--<li><a href="#">February 2013</a></li>-->
-        <!--<li><a href="#">March 2013</a></li>-->
-        <!--<li><a href="#">April 2013</a></li>-->
-        <!--<li><a href="#">May 2013</a></li>-->
-      <!--</ul>-->
-    </div>
+    <% include common/sidebar.ejs%>
 
     <div class="col-sm-9 articles">
       <div class="row">
@@ -72,12 +36,12 @@
             </div>
           </a>
           <div class="article-tips">
-            <div class="article-category"><a href="/article/<%=article.seo_url%>"><%=article.article_category_id%></a></div>
-            <div class="article-date"><%=article.create_at.substring(0,9)%></div>
+            <div class="article-category"><a href="/category/<%=data.categorysPair[article.article_category_id]%>"><%=data.categorysPair[article.article_category_id]%></a></div>
+            <div class="article-date"><%=article.create_at.substring(0,10)%></div>
           </div>
           <div class="article-title"><a href="/article/<%=article.seo_url%>"><%=article.name%></a>
           </div>
-          <div class="article-brief"><%=article.content%></div>
+          <div class="article-brief"><%=article.brief%></div>
         </div>
         <%
           })

@@ -1,6 +1,10 @@
 var o = {
     save: function () {
-        $('#brief').val($('#content').text().substring(0,150));
+        //var richText = $('#content').val();
+        //var plantText = $(richText).text();
+        //console.log(richText)
+        //console.log(plantText)
+        $('#brief').val(ue.getContentTxt().substring(0,150));
         $.ajax({
             url: '/admin/article',
             type: 'post',
