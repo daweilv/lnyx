@@ -1,0 +1,61 @@
+.md-editor{
+    position: relative;
+}
+
+.md-editor .tab-content{
+    padding-top: 10px;
+}
+
+.md-editor textarea{
+    background-color: #fafafa;
+}
+
+.md-editor textarea:focus{
+    background-color: #fff;
+    outline: none;
+}
+
+.md-tool{
+    position: absolute;
+    top: 6px;
+    right:0
+}
+.md-tool .dropdown-menu{
+    min-width: 0;
+}
+
+.md-tool .md-h1 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.md-tool .md-h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.md-tool .md-h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.md-tool .md-h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.md-tool .md-h5 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.md-tool .md-h6 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.md-tool .md-btn{
+    outline: none;
+}
+
+
