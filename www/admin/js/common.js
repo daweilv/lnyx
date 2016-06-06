@@ -35,6 +35,12 @@ var common = {
         $.get('/admin/logout', function (rs) {
             location.href = rs.data.href;
         })
+    },
+    initEvent: function () {
+        $('[data-toggle="tooltip"]').tooltip()
     }
 };
 
+$(function () {
+    common.initEvent()
+})

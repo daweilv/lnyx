@@ -75,8 +75,6 @@
 <% include common/script.ejs %>
 <script>
     $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-
         $('#confirm-modal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
             var deleteid = button.data('deleteid');

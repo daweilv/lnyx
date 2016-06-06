@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
     <% include common/head.ejs %>
+    <link rel="stylesheet" href="/module/md-editor/css/md-editor.css"/>
 </head>
 
 <body>
@@ -22,188 +23,228 @@
 <div class="container main">
     <div class="row">
         <form id="dataForm">
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body">
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                    <div class="panel-body">
 
                         <div class="form-group">
-                            <!--<button type="reset" class="btn btn-default btn-lg"> 预 览 </button>-->
-                            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="o.save()"> 发 布 </button>
-                            <!--<div class="btn-group btn-group-lg ">-->
-                                <!--<button type="button" class="btn btn-primary" onclick="o.save()"> 发布 </button>-->
-                                <!--<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-calendar"></span></button>-->
-                            <!--</div>-->
-                            <!--<div class="alert alert-success" hidden></div>-->
-                            <!--<div class="alert alert-warning" hidden></div>-->
-                            <!--<div class="alert alert-danger" hidden></div>-->
-                        </div>
-                        <input id="id" name="id" type="hidden"/>
-                        <input id="brief" name="brief" type="hidden"/>
+                            <label for="name" class="control-label">标题</label>
 
-                        <div class="form-group">
-                            <label for="article_category_id" class="control-label">分类</label>
-
-                            <select name="article_category_id" id="article_category_id" class="form-control">
-                                <%
-                                if(categorys){
-                                    categorys.forEach(function (c) {
-                                %>
-                                <option value="<%=c.id%>"><%=c.name%></option>
-                                <%
-                                    })
-                                }
-                                %>
-                            </select>
-
+                            <input type="text" class="form-control" id="name" name="name"
+                                   placeholder="name">
                         </div>
                         <div class="form-group">
-                            <label for="author" class="control-label">作者</label>
+                            <label for="seo_url" class="control-label">自定义访问路径 <span class="icon-link"></span></label>
 
-                            <input type="text" class="form-control" id="author" name="author"
-                                   placeholder="author" value="<%=user.name%>">
+                            <input type="text" class="form-control" id="seo_url" name="seo_url" placeholder="http://lnyx.club/blog/seo_url">
                         </div>
 
                         <div class="form-group">
-                            <label for="cover" class="control-label">封面</label>
-
-                            <input type="text" class="hidden" id="cover" name="cover">
-
-                            <div class="upload-img-box">
-                                <div class="upload-operate">
-                                    <div class="upload-tip-img"><span class="glyphicon glyphicon-picture"></span></div>
-                                    <div class="upload-tip"><span class="">点击上传封面</span></div>
+                            <div class="md-editor">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#md-input" data-toggle="tab">内容</a></li>
+                                    <li><a href="#md-preview" data-toggle="tab">预览</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="md-input">
+                                        <textarea name="content" id="content" rows="12" class="form-control"></textarea>
+                                    </div>
+                                    <div class="tab-pane" id="md-preview">
+                                        <div class="md-content"></div>
+                                    </div>
                                 </div>
-                                <img src="" class="upload-img hidden">
-                                <!--<img src="" class="upload-img">-->
-                                <iframe id="imgFrame" name="imgFrame" class="hidden"></iframe>
+                                <div class="md-tool">
+                                    <div class="btn-group btn-group-sm">
+                                        <div class="btn-group btn-group-sm" role="group" data-toggle="tooltip" data-container="body" title="标题大小">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-header"></span>
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" class="md-h1">h1</a></li>
+                                                <li><a href="#" class="md-h2">h2</a></li>
+                                                <li><a href="#" class="md-h3">h3</a></li>
+                                                <li><a href="#" class="md-h4">h4</a></li>
+                                                <li><a href="#" class="md-h5">h5</a></li>
+                                                <li><a href="#" class="md-h6">h6</a></li>
+                                            </ul>
+                                        </div>
+                                        <button type="button" class="btn btn-default md-btn md-btn-bold" data-toggle="tooltip" data-container="body" title="加粗"><span class="glyphicon glyphicon-bold"></span></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-italic" data-toggle="tooltip" data-container="body" title="斜体"><span class="glyphicon glyphicon-italic"></span></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-picture" data-toggle="tooltip" data-container="body" title="嵌入图片"><span class="glyphicon glyphicon-picture"></span></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-link" data-toggle="tooltip" data-container="body" title="嵌入链接"><span class="glyphicon glyphicon-link"></span></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-code" data-toggle="tooltip" data-container="body" title="嵌入代码"><span class="fa fa-code"></span></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-paperclip" data-toggle="tooltip" data-container="body" title="嵌入附件"><span class="glyphicon glyphicon-paperclip"></span></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-quoteleft" data-toggle="tooltip" data-container="body" title="嵌入引用"><i class="fa fa-quote-left"></i></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-listol" data-toggle="tooltip" data-container="body" title="编号列表"><i class="fa fa-list-ol"></i></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-listul" data-toggle="tooltip" data-container="body" title="无编号列表"><i class="fa fa-list-ul"></i></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-fullscreen" data-toggle="tooltip" data-container="body" title="全屏"><i class="glyphicon glyphicon-fullscreen"></i></button>
+                                    </div>
+                                </div>
                             </div>
-                            <!--<img src="https://img.alicdn.com/tps/TB1QzViMpXXXXXZXXXXXXXXXXXX-900-500.jpg" alt="..." class="img-thumbnail">-->
-
-
-
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input id="is_show_cover" name="is_show_cover" type="checkbox" value="1"> 在正文中显示封面
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input id="is_show_comment" name="is_show_comment" type="checkbox" value="1"> 显示评论
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label for="tag" class="control-label">标签</label>
-
-                            <input type="text" class="form-control" id="tag" name="tag"
-                                   placeholder="tag">
                         </div>
 
-                        <div class="form-group">
-                            <label for="seo_title" class="control-label">SEO标题</label>
-
-                            <input type="text" class="form-control" id="seo_title" name="seo_title"
-                                   placeholder="seo_title">
-                        </div>
-                        <div class="form-group">
-                            <label for="seo_keywords" class="control-label">SEO关键词</label>
-
-                            <input type="text" class="form-control" id="seo_keywords" name="seo_keywords"
-                                   placeholder="seo_keywords">
-                        </div>
-                        <div class="form-group">
-                            <label for="seo_description" class="control-label">SEO描述</label>
-
-                            <input type="text" class="form-control" id="seo_description" name="seo_description"
-                                   placeholder="seo_description">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="create_at" class="control-label">创建日期</label>
-
-                            <p class="form-control-static">
-                                <% if(data.create_at){ %>
-                                <%= data.create_at %>
-                                <% } %>
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <label for="create_by" class="control-label">创建人</label>
-
-                            <p class="form-control-static">
-                                <% if(data.create_by){ %>
-                                <%= data.create_by %>
-                                <% } %>
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <label for="update_at" class="control-label">更新日期</label>
-
-                            <p class="form-control-static">
-                                <% if(data.update_at){ %>
-                                <%= data.update_at %>
-                                <% } %>
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <label for="update_by" class="control-label">更新人</label>
-
-                            <p class="form-control-static">
-                                <% if(data.update_by){ %>
-                                <%= data.update_by %>
-                                <% } %>
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <label for="delete_at" class="control-label">删除日期</label>
-
-                            <p class="form-control-static">
-                                <% if(data.delete_at){ %>
-                                <%= data.delete_at %>
-                                <% } %>
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <label for="delete_by" class="control-label">删除人</label>
-
-                            <p class="form-control-static">
-                                <% if(data.delete_by){ %>
-                                <%= data.delete_by %>
-                                <% } %>
-                            </p>
-                        </div>
-
-
-
-
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-9">
-            <div class="panel panel-default">
-                <div class="panel-body">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
 
-                    <div class="form-group">
-                        <label for="name" class="control-label">标题</label>
+                            <div class="form-group">
+                                <!--<button type="reset" class="btn btn-default btn-lg"> 预 览 </button>-->
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="o.save()"> 发 布 </button>
+                                <!--<div class="btn-group btn-group-lg ">-->
+                                    <!--<button type="button" class="btn btn-primary" onclick="o.save()"> 发布 </button>-->
+                                    <!--<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-calendar"></span></button>-->
+                                <!--</div>-->
+                                <!--<div class="alert alert-success" hidden></div>-->
+                                <!--<div class="alert alert-warning" hidden></div>-->
+                                <!--<div class="alert alert-danger" hidden></div>-->
+                            </div>
+                            <input id="id" name="id" type="hidden"/>
+                            <input id="brief" name="brief" type="hidden"/>
 
-                        <input type="text" class="form-control" id="name" name="name"
-                               placeholder="name">
+                            <div class="form-group">
+                                <label for="article_category_id" class="control-label">分类</label>
+
+                                <select name="article_category_id" id="article_category_id" class="form-control">
+                                    <%
+                                    if(categorys){
+                                        categorys.forEach(function (c) {
+                                    %>
+                                    <option value="<%=c.id%>"><%=c.name%></option>
+                                    <%
+                                        })
+                                    }
+                                    %>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="author" class="control-label">作者</label>
+
+                                <input type="text" class="form-control" id="author" name="author"
+                                       placeholder="author" value="<%=user.name%>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cover" class="control-label">封面</label>
+
+                                <input type="text" class="hidden" id="cover" name="cover">
+
+                                <div class="upload-img-box">
+                                    <div class="upload-operate">
+                                        <div class="upload-tip-img"><span class="glyphicon glyphicon-picture"></span></div>
+                                        <div class="upload-tip"><span class="">点击上传封面</span></div>
+                                    </div>
+                                    <img src="" class="upload-img hidden">
+                                    <!--<img src="" class="upload-img">-->
+                                    <iframe id="imgFrame" name="imgFrame" class="hidden"></iframe>
+                                </div>
+                                <!--<img src="https://img.alicdn.com/tps/TB1QzViMpXXXXXZXXXXXXXXXXXX-900-500.jpg" alt="..." class="img-thumbnail">-->
+
+
+
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="is_show_cover" name="is_show_cover" type="checkbox" value="1"> 在正文中显示封面
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="is_show_comment" name="is_show_comment" type="checkbox" value="1"> 显示评论
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="tag" class="control-label">标签</label>
+
+                                <input type="text" class="form-control" id="tag" name="tag"
+                                       placeholder="tag">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="seo_title" class="control-label">SEO标题</label>
+
+                                <input type="text" class="form-control" id="seo_title" name="seo_title"
+                                       placeholder="seo_title">
+                            </div>
+                            <div class="form-group">
+                                <label for="seo_keywords" class="control-label">SEO关键词</label>
+
+                                <input type="text" class="form-control" id="seo_keywords" name="seo_keywords"
+                                       placeholder="seo_keywords">
+                            </div>
+                            <div class="form-group">
+                                <label for="seo_description" class="control-label">SEO描述</label>
+
+                                <input type="text" class="form-control" id="seo_description" name="seo_description"
+                                       placeholder="seo_description">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="create_at" class="control-label">创建日期</label>
+
+                                <p class="form-control-static">
+                                    <% if(data.create_at){ %>
+                                    <%= data.create_at %>
+                                    <% } %>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="create_by" class="control-label">创建人</label>
+
+                                <p class="form-control-static">
+                                    <% if(data.create_by){ %>
+                                    <%= data.create_by %>
+                                    <% } %>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="update_at" class="control-label">更新日期</label>
+
+                                <p class="form-control-static">
+                                    <% if(data.update_at){ %>
+                                    <%= data.update_at %>
+                                    <% } %>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="update_by" class="control-label">更新人</label>
+
+                                <p class="form-control-static">
+                                    <% if(data.update_by){ %>
+                                    <%= data.update_by %>
+                                    <% } %>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="delete_at" class="control-label">删除日期</label>
+
+                                <p class="form-control-static">
+                                    <% if(data.delete_at){ %>
+                                    <%= data.delete_at %>
+                                    <% } %>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="delete_by" class="control-label">删除人</label>
+
+                                <p class="form-control-static">
+                                    <% if(data.delete_by){ %>
+                                    <%= data.delete_by %>
+                                    <% } %>
+                                </p>
+                            </div>
+
+
+
+
                     </div>
-                    <div class="form-group">
-                        <label for="seo_url" class="control-label">自定义访问路径<span class="glyphicon glyphicon-link"></span></label>
-
-                        <input type="text" class="form-control" id="seo_url" name="seo_url" placeholder="http://lnyx.club/blog/seo_url">
-                    </div>
-                    <div class="form-group">
-                        <label for="content" class="control-label">内容</label>
-                        <script type="text/plain" id="content" name = "content">
-
-                        </script>
-                    </div>
-
                 </div>
             </div>
-        </div>
+
         </form>
     </div>
     <form id="imgForm" name="imgForm" action="/admin/upload" target="imgFrame" method="post" enctype="multipart/form-data">
@@ -216,17 +257,8 @@
     var data = <%- JSON.stringify(data) %>
 
 </script>
+<script src="/module/md-editor/js/marked.min.js"></script>
+<script src="/module/md-editor/js/md-editor.js"></script>
 <script src="/admin/js/article.js"></script>
-<script type="text/javascript" charset="utf-8" src="/module/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="/module/ueditor/ueditor.all.min.js"></script>
-<script>
-    var ue = UE.getEditor('content',{initialFrameHeight: 600});
-    ue.ready(function() {
-        if(data.content){
-            ue.setContent(data.content);
-        }
-    });
-
-</script>
 </body>
 </html>
