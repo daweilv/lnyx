@@ -4,6 +4,7 @@ CREATE TABLE `f_article` (
   `name` varchar(100) NOT NULL COMMENT '名称',
   `author` varchar(10) NOT NULL COMMENT '作者',
   `content` text NOT NULL COMMENT '内容',
+  `content_md` text NOT NULL COMMENT 'markdown源格式',
   `brief` varchar(400) NOT NULL COMMENT '摘要',
   `cover` varchar(100) NOT NULL COMMENT '封面',
   `is_show_cover` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否显示封面{0:不显示,1:显示}',

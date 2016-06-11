@@ -47,7 +47,8 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="md-input">
-                                        <textarea name="content" id="content" rows="12" class="form-control"></textarea>
+                                        <input id="content" name="content" type="hidden">
+                                        <textarea name="content_md" id="content_md" rows="12" class="form-control" onkeyup="mdEditor.autoResizeHeight()"></textarea>
                                     </div>
                                     <div class="tab-pane" id="md-preview">
                                         <div class="md-content"></div>
@@ -76,8 +77,8 @@
                                         <button type="button" class="btn btn-default md-btn md-btn-code" data-toggle="tooltip" data-container="body" title="嵌入代码"><span class="fa fa-code"></span></button>
                                         <button type="button" class="btn btn-default md-btn md-btn-paperclip" data-toggle="tooltip" data-container="body" title="嵌入附件"><span class="glyphicon glyphicon-paperclip"></span></button>
                                         <button type="button" class="btn btn-default md-btn md-btn-quoteleft" data-toggle="tooltip" data-container="body" title="嵌入引用"><i class="fa fa-quote-left"></i></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-listol" data-toggle="tooltip" data-container="body" title="编号列表"><i class="fa fa-list-ol"></i></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-listul" data-toggle="tooltip" data-container="body" title="无编号列表"><i class="fa fa-list-ul"></i></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-listol" data-toggle="tooltip" data-container="body" title="有序列表"><i class="fa fa-list-ol"></i></button>
+                                        <button type="button" class="btn btn-default md-btn md-btn-listul" data-toggle="tooltip" data-container="body" title="无需列表"><i class="fa fa-list-ul"></i></button>
                                         <button type="button" class="btn btn-default md-btn md-btn-fullscreen" data-toggle="tooltip" data-container="body" title="全屏"><i class="glyphicon glyphicon-fullscreen"></i></button>
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 var o = {
     save: function () {
-        $('#brief').val(ue.getContentTxt().substring(0,150));
+        $('#content').val(marked($('#content_md').val()));
+        $('#brief').val($('#content').text().substring(0,150));
         $.ajax({
             url: '/admin/article',
             type: 'post',
@@ -52,11 +53,22 @@ var o = {
             $('.upload-img').removeClass('hidden').attr('src',data.cover)
         }
     },
+    showMDPreview: function () {
+        var mk = $('#content_md').val();
+        $('.md-content').html(marked(mk))
+    },
+    showMDPreviewEvent: function () {
+        var that = this;
+        $('a[href="#md-preview"]').on('shown.bs.tab', function (e) {
+            that.showMDPreview();
+        })
+    },
     init: function () {
         for (var key in data) {
             var $key = $('#dataForm [name=' + key + ']');
             if ($key.length) {
                 var tagName = $key.get(0).tagName;
+                console.log(tagName);
                 var type = $key.attr('type');
                 if (tagName == 'INPUT') {
                     if (type == 'text' || type == 'password' || type == 'hidden') {
@@ -69,11 +81,14 @@ var o = {
                     }
                 } else if (tagName == 'SELECT') {
                     $key.val(data[key])
+                } else if(tagName == 'TEXTAREA'){
+                    $key.html(data[key]);
                 }
             }
         }
 
-        this.initUploadImg()
+        this.initUploadImg();
+        this.showMDPreviewEvent();
     }
 };
 

@@ -33,7 +33,11 @@ function setCaretPosition(elemId, caretPos) {
 
 
 var mdEditor = {
-    target: 'content',
+    target: 'content_md',
+    autoResizeHeight : function() {
+
+        //todo: 高度自适应
+    },
     doBold: function () {
         var that = this;
         var textarea = document.getElementById(that.target);
@@ -136,6 +140,7 @@ var mdEditor = {
     },
     initEvent: function () {
         var that = this;
+
         $('.md-btn-bold').click(function () {
             that.doBold()
         });
