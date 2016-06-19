@@ -3,33 +3,41 @@ var formidable = require('formidable');
 
 var logic = {
 
-    upload: function (req, res, next) {
+    upload: function(req, res, next) {
         var _rs = {};
 
-        var form = new formidable.IncomingForm();   //创建上传表单
-        form.encoding = 'utf-8';		//设置编辑
+        var form = new formidable.IncomingForm(); //创建上传表单
+        form.encoding = 'utf-8'; //设置编辑
         form.uploadDir = config.path.file;
-        form.keepExtensions = true;	 //保留后缀
-        form.maxFieldsSize = 1000 * 1024 * 1024;   //文件大小
+        form.keepExtensions = true; //保留后缀
+        form.maxFieldsSize = 1000 * 1024 * 1024; //文件大小
 
-        form.parse(req, function (err, fields, files) {
+        form.parse(req, function(err, fields, files) {
+            var callback = fields.callback;
             if (err) {
                 console.error(err);
                 _rs.status = false;
                 _rs.msg = 'formError';
-                res.end(uploadCallback(_rs));
+                res.end(uploadCallback(callback, _rs));
                 return;
             }
 
-            var imgPath = files.img.path.replace(config.path.webroot,'');
+            var filePath = files.file.path.replace(config.path.webroot, '');
+
+            var file = {
+                name: files.file.name,
+                path: filePath
+            };
 
             _rs.status = true;
-            _rs.data = {imgPath:imgPath};
+            _rs.data = {
+                file: file
+            };
 
-            res.end(uploadCallback(_rs));
+            res.end(uploadCallback(callback, _rs));
 
-            function uploadCallback(rs){
-                return '<script>parent.o.uploadCallback('+JSON.stringify(rs)+')</script>'
+            function uploadCallback(callback, rs) {
+                return '<script>parent.' + callback + '(' + JSON.stringify(rs) + ')</script>'
             }
         })
     }

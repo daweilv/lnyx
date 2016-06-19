@@ -3,7 +3,7 @@ var o = {
         $.ajax({
             url: '/admin/articleCategory',
             type: 'post',
-            data: {_model: $('form').serialize()},
+            data: {_model: $('#dataForm').serialize()},
             success: function (rs) {
                 $('.alert').hide();
                 if (rs.status) {

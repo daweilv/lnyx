@@ -1,14 +1,14 @@
 var o = {
-    save: function () {
+    save: function() {
         $('#content').val(marked($('#content_md').val()));
-        $('#brief').val($('#content').text().substring(0,150));
+        $('#brief').val($('#content').text().substring(0, 150));
         $.ajax({
             url: '/admin/article',
             type: 'post',
             data: {
-                _model: $('form').serialize()
+                _model: $('#dataForm').serialize()
             },
-            success: function (rs) {
+            success: function(rs) {
                 $('.alert').hide();
                 if (rs.status) {
                     $('.alert.alert-success').show().text('保存成功！');
@@ -18,82 +18,77 @@ var o = {
                     $('.alert.alert-danger').show().text(rs.error.toString());
                 }
             },
-            error: function (err) {
+            error: function(err) {
                 $('.alert').hide();
                 $('.alert.alert-warning').show().text('网络异常！');
             }
         })
     },
-    uploadCallback: function (rs) {
-        console.log(rs);
-        if(rs.status){
+    uploadCallback: function(rs) {
+        if (rs.status) {
             $('.upload-operate').addClass('hidden');
-            $('.upload-img').removeClass('hidden').attr('src',rs.data.imgPath)
-            $('#cover').val(rs.data.imgPath)
-        }else{
+            $('.upload-img').removeClass('hidden').attr('src', rs.data.file.path)
+            $('#cover').val(rs.data.file.path)
+        } else {
             alert(rs.msg)
         }
 
     },
-    initUploadImg: function () {
-        $('.upload-operate').click(function () {
+    initUploadImg: function() {
+        $('.upload-operate').click(function() {
             $('.upload-file').click();
         });
 
-        $('.upload-img').click(function () {
+        $('.upload-img').click(function() {
             $('.upload-file').click();
         });
 
-        $('.upload-file').change(function () {
+        $('.upload-file').change(function() {
             $('#imgForm')[0].submit()
         })
 
-        if(data.cover){
+        if (data.cover) {
             $('.upload-operate').addClass('hidden');
-            $('.upload-img').removeClass('hidden').attr('src',data.cover)
+            $('.upload-img').removeClass('hidden').attr('src', data.cover)
         }
     },
-    showMDPreview: function () {
+    showMDPreview: function() {
         var mk = $('#content_md').val();
         $('.md-content').html(marked(mk))
     },
-    showMDPreviewEvent: function () {
+    showMDPreviewEvent: function() {
         var that = this;
-        $('a[href="#md-preview"]').on('shown.bs.tab', function (e) {
+        $('a[href="#md-preview"]').on('shown.bs.tab', function(e) {
             that.showMDPreview();
         })
     },
-    init: function () {
+    init: function() {
         for (var key in data) {
             var $key = $('#dataForm [name=' + key + ']');
             if ($key.length) {
                 var tagName = $key.get(0).tagName;
-                console.log(tagName);
                 var type = $key.attr('type');
                 if (tagName == 'INPUT') {
                     if (type == 'text' || type == 'password' || type == 'hidden') {
                         $key.val(data[key])
                     }
                     if (type == 'checkbox') {
-                        if(data[key] == 1 || data[key] == true){
-                            $key.prop('checked',true)
+                        if (data[key] == 1 || data[key] == true) {
+                            $key.prop('checked', true)
                         }
                     }
                 } else if (tagName == 'SELECT') {
                     $key.val(data[key])
-                } else if(tagName == 'TEXTAREA'){
+                } else if (tagName == 'TEXTAREA') {
                     $key.html(data[key]);
                 }
             }
         }
-
         this.initUploadImg();
         this.showMDPreviewEvent();
     }
 };
 
-$(function () {
+$(function() {
     o.init();
 })
-
-

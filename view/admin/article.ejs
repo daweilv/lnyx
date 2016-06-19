@@ -40,49 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="md-editor">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#md-input" data-toggle="tab">内容</a></li>
-                                    <li><a href="#md-preview" data-toggle="tab">预览</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="md-input">
-                                        <input id="content" name="content" type="hidden">
-                                        <textarea name="content_md" id="content_md" rows="12" class="form-control" onkeyup="mdEditor.autoResizeHeight()"></textarea>
-                                    </div>
-                                    <div class="tab-pane" id="md-preview">
-                                        <div class="md-content"></div>
-                                    </div>
-                                </div>
-                                <div class="md-tool">
-                                    <div class="btn-group btn-group-sm">
-                                        <div class="btn-group btn-group-sm" role="group" data-toggle="tooltip" data-container="body" title="标题大小">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="glyphicon glyphicon-header"></span>
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#" class="md-h1">h1</a></li>
-                                                <li><a href="#" class="md-h2">h2</a></li>
-                                                <li><a href="#" class="md-h3">h3</a></li>
-                                                <li><a href="#" class="md-h4">h4</a></li>
-                                                <li><a href="#" class="md-h5">h5</a></li>
-                                                <li><a href="#" class="md-h6">h6</a></li>
-                                            </ul>
-                                        </div>
-                                        <button type="button" class="btn btn-default md-btn md-btn-bold" data-toggle="tooltip" data-container="body" title="加粗"><span class="glyphicon glyphicon-bold"></span></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-italic" data-toggle="tooltip" data-container="body" title="斜体"><span class="glyphicon glyphicon-italic"></span></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-picture" data-toggle="tooltip" data-container="body" title="嵌入图片"><span class="glyphicon glyphicon-picture"></span></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-link" data-toggle="tooltip" data-container="body" title="嵌入链接"><span class="glyphicon glyphicon-link"></span></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-code" data-toggle="tooltip" data-container="body" title="嵌入代码"><span class="fa fa-code"></span></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-paperclip" data-toggle="tooltip" data-container="body" title="嵌入附件"><span class="glyphicon glyphicon-paperclip"></span></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-quoteleft" data-toggle="tooltip" data-container="body" title="嵌入引用"><i class="fa fa-quote-left"></i></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-listol" data-toggle="tooltip" data-container="body" title="有序列表"><i class="fa fa-list-ol"></i></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-listul" data-toggle="tooltip" data-container="body" title="无需列表"><i class="fa fa-list-ul"></i></button>
-                                        <button type="button" class="btn btn-default md-btn md-btn-fullscreen" data-toggle="tooltip" data-container="body" title="全屏"><i class="glyphicon glyphicon-fullscreen"></i></button>
-                                    </div>
-                                </div>
-                            </div>
+                            <% include mdEditor.html%>
                         </div>
 
                     </div>
@@ -93,15 +51,7 @@
                     <div class="panel-body">
 
                             <div class="form-group">
-                                <!--<button type="reset" class="btn btn-default btn-lg"> 预 览 </button>-->
                                 <button type="button" class="btn btn-primary btn-lg btn-block" onclick="o.save()"> 发 布 </button>
-                                <!--<div class="btn-group btn-group-lg ">-->
-                                    <!--<button type="button" class="btn btn-primary" onclick="o.save()"> 发布 </button>-->
-                                    <!--<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-calendar"></span></button>-->
-                                <!--</div>-->
-                                <!--<div class="alert alert-success" hidden></div>-->
-                                <!--<div class="alert alert-warning" hidden></div>-->
-                                <!--<div class="alert alert-danger" hidden></div>-->
                             </div>
                             <input id="id" name="id" type="hidden"/>
                             <input id="brief" name="brief" type="hidden"/>
@@ -140,7 +90,6 @@
                                         <div class="upload-tip"><span class="">点击上传封面</span></div>
                                     </div>
                                     <img src="" class="upload-img hidden">
-                                    <!--<img src="" class="upload-img">-->
                                     <iframe id="imgFrame" name="imgFrame" class="hidden"></iframe>
                                 </div>
                                 <!--<img src="https://img.alicdn.com/tps/TB1QzViMpXXXXXZXXXXXXXXXXXX-900-500.jpg" alt="..." class="img-thumbnail">-->
@@ -249,7 +198,12 @@
         </form>
     </div>
     <form id="imgForm" name="imgForm" action="/admin/upload" target="imgFrame" method="post" enctype="multipart/form-data">
-        <input class="upload-file hidden" name="img" type="file" accept="image/*">
+        <input class="upload-file hidden" name="file" type="file" accept="image/*">
+        <input type="hidden" name="callback" value="o.uploadCallback">
+    </form>
+    <form id="mdUploadForm" name="mdUploadForm" action="/admin/upload" target="mdUploadImgFrame" method="post" enctype="multipart/form-data">
+        <input class="hidden" id="mdUploadImg" name="file" type="file" accept="image/*">
+        <input type="hidden" name="callback" value="mdEditor.uploadCallback">
     </form>
 
 </div>

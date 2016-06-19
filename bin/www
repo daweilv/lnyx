@@ -38,8 +38,7 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 process.on('uncaughtException', function (err) {
-  console.trace('uncaughtException ==>');
-  console.error(err);
+  console.error(err.stack);
 });
 
 /**

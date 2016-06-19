@@ -15,11 +15,11 @@
     outline: none;
 }
 
-.md-tool{
-    position: absolute;
-    top: 6px;
-    right:0
-}
+/*.md-tool{*/
+    /*position: absolute;*/
+    /*top: 6px;*/
+    /*right:0*/
+/*}*/
 .md-tool .dropdown-menu{
     min-width: 0;
 }
@@ -61,5 +61,20 @@
 .md-content{
     padding:5px 10px;
 }
+.md-content img{
+    max-width: 100%;
+}
 
+#mdUploadImgBtn{
+    border: dotted #ccc 2px;
+    line-height: 40px;
+    text-align: center;
+    color: #999999;
+}
+
+#mdUploadImgBtn:hover{
+    border: dotted #B3B3B3 2px;
+    box-shadow: 0 0 1px #B3B3B3;
+    cursor: pointer;
+}
 
