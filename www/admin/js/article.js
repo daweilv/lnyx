@@ -1,7 +1,8 @@
 var o = {
     save: function() {
-        $('#content').val(marked($('#content_md').val()));
-        $('#brief').val($('#content').text().substring(0, 150));
+        var htmlContent = marked($('#content_md').val());
+        $('#content').val(htmlContent);
+        $('#brief').val($(htmlContent).text().substring(0, 150));
         $.ajax({
             url: '/admin/article',
             type: 'post',
