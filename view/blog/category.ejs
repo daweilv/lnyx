@@ -33,7 +33,8 @@
         if(data.articles && data.articles.length > 0){
           data.articles.forEach(function (article) {
         %>
-        <div class="col-sm-6 article-box">
+        <div class="col-md-4 col-sm-6 ">
+          <div class="article-box">
           <a href="/article/<%=article.seo_url%>">
             <div class="article-cover" style="background-image: url(<%=article.cover%>)">
             </div>
@@ -45,6 +46,7 @@
           <div class="article-title"><a href="/article/<%=article.seo_url%>"><%=article.name%></a>
           </div>
           <div class="article-brief"><%=article.brief%></div>
+          </div>
         </div>
         <%
           })

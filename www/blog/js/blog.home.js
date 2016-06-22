@@ -5,7 +5,6 @@ if(typeof blog == 'undefined' || !blog) blog = {};
 
 blog.home = {
     initEvents: function () {
-        console.debug('Blog.home.init');
         $("#blog_btn").addClass('animated tada');
     }
 };

@@ -69,8 +69,8 @@ var logic = {
             _rs.data.latestArticles = rs.latestArticles;
             _rs.data.article = rs.article;
             _rs.data.categorys = rs.categorys;
-            _rs.data.category_id = rs.article.category_id;
-            _rs.data.current_category_id = rs.article.category_id;
+            _rs.data.category_id = rs.article.article_category_id;
+            _rs.data.current_category_id = rs.article.article_category_id;
 
             res.render('blog/article', _rs);
         });

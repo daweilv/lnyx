@@ -15,11 +15,9 @@
     outline: none;
 }
 
-/*.md-tool{*/
-    /*position: absolute;*/
-    /*top: 6px;*/
-    /*right:0*/
-/*}*/
+.md-tool{
+    padding-bottom: 5px;
+}
 .md-tool .dropdown-menu{
     min-width: 0;
 }
