@@ -305,7 +305,7 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 }
 
 .article-box .article-brief {
-    height: 40px;
+    height: 60px;
     color: #aaa;
     overflow: hidden;
 }
