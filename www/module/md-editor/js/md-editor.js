@@ -27,15 +27,15 @@ var mdEditor = {
             if (!isBolded) {
                 afterText = textarea.value.slice(0, selectionStart) + '****' + textarea.value.slice(selectionEnd);
                 textarea.value = afterText;
-                setCaretPosition(that.target, selectionStart + 2);
+                textarea.setSelectionRange(selectionStart + 2, selectionStart + 2);
             } else {
                 afterText = textarea.value.slice(0, selectionStart - 2) + textarea.value.slice(selectionEnd + 2);
                 textarea.value = afterText;
-                setCaretPosition(that.target, selectionStart - 2);
+                textarea.setSelectionRange(selectionStart - 2, selectionStart - 2);
             }
         } else {
             var selectedText = textarea.value.slice(selectionStart, selectionEnd);
-            reg = new RegExp('\\*\\*' + selectedText + '\\*\\*');
+            reg = new RegExp('\\*{2}' + selectedText + '\\*{2}');
             isBolded = reg.test(textarea.value.slice(selectionStart - 2, selectionEnd + 2));
             if (!isBolded) {
                 afterText = textarea.value.slice(0, selectionStart) + '**' + selectedText + '**' + textarea.value.slice(selectionEnd);
@@ -48,8 +48,8 @@ var mdEditor = {
                 textarea.selectionStart = selectionStart - 2;
                 textarea.selectionEnd = selectionEnd - 2;
             }
-            textarea.focus();
         }
+        textarea.focus();
     },
     doItalic: function() {
         var that = this;
@@ -65,11 +65,11 @@ var mdEditor = {
             if (!isItaliced) {
                 afterText = textarea.value.slice(0, selectionStart) + '____' + textarea.value.slice(selectionEnd);
                 textarea.value = afterText;
-                setCaretPosition(that.target, selectionStart + 2);
+                textarea.setSelectionRange(selectionStart + 2, selectionStart + 2);
             } else {
                 afterText = textarea.value.slice(0, selectionStart - 2) + textarea.value.slice(selectionEnd + 2);
                 textarea.value = afterText;
-                setCaretPosition(that.target, selectionStart - 2);
+                textarea.setSelectionRange(selectionStart - 2, selectionStart - 2);
             }
         } else {
             var selectedText = textarea.value.slice(selectionStart, selectionEnd);
@@ -86,29 +86,62 @@ var mdEditor = {
                 textarea.selectionStart = selectionStart - 2;
                 textarea.selectionEnd = selectionEnd - 2;
             }
-            textarea.focus();
         }
+        textarea.focus();
     },
     doPicture: function(imgPath) {
         var that = this;
         var textarea = document.getElementById(that.target);
         var selectionStart = textarea.selectionStart;
         var selectionEnd = textarea.selectionEnd;
-        var reg;
         var afterText;
         afterText = textarea.value.slice(0, selectionStart) + '![-](' + imgPath + ')' + textarea.value.slice(selectionEnd);
         textarea.value = afterText;
         textarea.selectionStart = selectionStart + 2;
         textarea.selectionEnd = selectionEnd + 2;
         textarea.focus();
-
-
-
     },
     doLink: function() {
-
+        var that = this;
+        var textarea = document.getElementById(that.target);
+        var selectionStart = textarea.selectionStart;
+        var selectionEnd = textarea.selectionEnd;
+        var afterText;
+        var selectedText = textarea.value.slice(selectionStart, selectionEnd);
+        afterText = textarea.value.slice(0, selectionStart) + '[' + selectedText + '](url)' + textarea.value.slice(selectionEnd);
+        textarea.value = afterText;
+        textarea.selectionStart = selectionStart + selectedText.length + 3;
+        textarea.selectionEnd = selectionEnd + 6;
+        textarea.focus();
     },
     doCode: function() {
+        var that = this;
+        var textarea = document.getElementById(that.target);
+        var selectionStart = textarea.selectionStart;
+        var selectionEnd = textarea.selectionEnd;
+        var afterText;
+        var selectedText = textarea.value.slice(selectionStart, selectionEnd);
+        var isHaveLineBreak = new RegExp('\n.+').test(selectedText);
+
+        var isStartWithLineBreak =
+
+
+        if(isHaveNewLine){
+            afterText = textarea.value.slice(0, selectionStart) + '\n```\n' + selectedText + '\n```\n' + textarea.value.slice(selectionEnd);
+            textarea.value = afterText;
+            textarea.selectionStart = selectionStart + 5;
+            textarea.selectionEnd = selectionEnd + 5;
+        }else{
+            afterText = textarea.value.slice(0, selectionStart) + '`' + selectedText + '`' + textarea.value.slice(selectionEnd);
+            textarea.value = afterText;
+            textarea.selectionStart = selectedText + 1;
+            textarea.selectionEnd = selectionEnd + 1;
+        }
+        textarea.focus();
+
+
+
+
 
     },
     doPaperclip: function() {

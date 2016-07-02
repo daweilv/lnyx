@@ -1,18 +1,25 @@
-var fs = require('fs');
+var a = "abcdefghijklmnopqrstuvwxyz"
+var b = "abcdefghijklmnopqrstuvwxyz"
+var c = "abcdefghijklmnopqrstuvwxyz"
+var d = "abcdefghijklmnopqrstuvwxyz"
 
-var data = '123213';
-var writerStream = fs.createWriteStream('abc' + '.js');
 
-writerStream.write(data, 'UTF8');
-writerStream.end();
-writerStream.on('finish', function () {
-    console.log("写入完成。");
-    //callback()
-});
+for (var ai = 0; ai < a.length; ai++) {
+    var strs = [];
+    for (var bi = 0; bi < b.length; bi++) {
+        for (var ci = 0; ci < c.length; ci++) {
+            for (var di = 0; di < d.length; di++) {
+                var str = a[ai] + b[bi] + c[ci] + d[di]
+                strs.push(str);
+            }
+        }
+    }
+    var fs = require("fs");
 
-writerStream.on('error', function (err) {
-    console.log(err.stack);
-    //callback(err);
-});/**
- * Created by david on 16/4/22.
- */
+    fs.writeFile(a[ai]+'.txt', strs.join('\n'), function(err) {
+        if (err) {
+            return console.error(err);
+        }
+        console.log("数据写入成功！");
+    });
+}

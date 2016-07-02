@@ -3,7 +3,7 @@ var UserController = require('../controller/user');
 
 var logic = {
     goLogin: function (req, res, next) {
-        res.render('admin/login', {title: '2222'});
+        res.render('admin/login', {title: '登录'});
     },
     login: function (req, res, next) {
         var _rs = {};
@@ -52,8 +52,7 @@ var logic = {
 
             _rs.status = true;
             _rs.msg = '登录成功';
-            _rs.data = {href: '/admin/index'};
-            console.log(_rs);
+            _rs.data = {href: '/admin/articles'};
             res.json(_rs)
         })
     },

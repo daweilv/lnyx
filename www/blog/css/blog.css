@@ -1,7 +1,5 @@
 body {
-    /*font-family: Arial, Helvetica, sans-serif;*/
-    font-family: "lucida grande", "lucida sans unicode", lucida, "Helvetica Neue", helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-
+    font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 a {
@@ -18,11 +16,12 @@ a:hover {
     background-color: #36749A;
     border-color: #36749A;
 }
+
+.main .not-found{
+    color: #999;
+}
 /*---nav---*/
 .navbar-blog {
-    /*background-color: #f8f8f8;*/
-    /*border-color: #e7e7e7;*/
-    /*background-color: #FFF;*/
     background: url(../img/page-background.png);
     border: none;
     border-radius: 0;
@@ -184,7 +183,6 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
     text-align: center;
 }
 .post .post-image img{
-    box-shadow: 0 0 5px #000;
     max-width: 80%;
     vertical-align: middle;
 }
@@ -231,50 +229,7 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 }
 
 /*---footer---*/
-@media (max-width: 767px) {
-    .main.container{
-        /*padding: 0;*/
-    }
-    .post{
-        padding-left: 15px;
-        padding-right: 15px;
-        margin: 0;
-    }
-    .post .post-image img{
-        box-shadow: 0 0 5px #000;
-        max-width: 100%;
-        vertical-align: middle;
-    }
-    .footer{
-        margin-top: 0;
-    }
-    .navbar{
-        margin-bottom: 0;
-    }
-    .navbar-blog .navbar-nav .open .dropdown-menu > li > a {
-        color: #777;
-    }
 
-    .navbar-blog .navbar-nav .open .dropdown-menu > li > a:hover,
-    .navbar-blog .navbar-nav .open .dropdown-menu > li > a:focus {
-        color: #333;
-        background-color: transparent;
-    }
-
-    .navbar-blog .navbar-nav .open .dropdown-menu > .active > a,
-    .navbar-blog .navbar-nav .open .dropdown-menu > .active > a:hover,
-    .navbar-blog .navbar-nav .open .dropdown-menu > .active > a:focus {
-        color: #555;
-        background-color: #e7e7e7;
-    }
-
-    .navbar-blog .navbar-nav .open .dropdown-menu > .disabled > a,
-    .navbar-blog .navbar-nav .open .dropdown-menu > .disabled > a:hover,
-    .navbar-blog .navbar-nav .open .dropdown-menu > .disabled > a:focus {
-        color: #ccc;
-        background-color: transparent;
-    }
-}
 .articles {
     padding: 35px;
     background-color: #ffffff;
@@ -283,6 +238,7 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 .article-box {
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     padding-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .article-box:hover {
@@ -337,5 +293,51 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 }
 .article-box .article-title a:hover{
     color: #4f8db3;
+}
+
+@media (max-width: 767px) {
+
+    .main .articles{
+        padding: 15px;
+    }
+
+    .post{
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 0;
+    }
+    .post .post-image img{
+        max-width: 100%;
+        vertical-align: middle;
+    }
+    .footer{
+        margin-top: 0;
+    }
+    .navbar{
+        margin-bottom: 0;
+    }
+    .navbar-blog .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+
+    .navbar-blog .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-blog .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent;
+    }
+
+    .navbar-blog .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-blog .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-blog .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #555;
+        background-color: #e7e7e7;
+    }
+
+    .navbar-blog .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-blog .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-blog .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #ccc;
+        background-color: transparent;
+    }
 }
 
