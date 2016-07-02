@@ -1,6 +1,10 @@
-td span.divider {
+i.divider {
     margin: 0;
     color: #ddd;
+}
+
+i.divider:after{
+    content: "|";
 }
 
 .dropdown .dropdown-toggle .caret{

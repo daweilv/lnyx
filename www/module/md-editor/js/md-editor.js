@@ -1,6 +1,6 @@
 var mdEditor = {
     target: 'content_md',
-    uploadCallback: function(rs) {
+    uploadCallback: function (rs) {
         var that = this;
         if (rs.status) {
             $('#mdUploadImgModal').modal('hide');
@@ -9,22 +9,20 @@ var mdEditor = {
             alert(rs.msg)
         }
     },
-    autoResizeHeight: function() {
+    autoResizeHeight: function () {
 
         //todo: 高度自适应
     },
-    doBold: function() {
+    doBold: function () {
         var that = this;
         var textarea = document.getElementById(that.target);
         var selectionStart = textarea.selectionStart;
         var selectionEnd = textarea.selectionEnd;
-        var reg;
         var afterText;
-        var isBolded;
+        var bolded;
         if (selectionStart == selectionEnd) {
-            reg = new RegExp('\\*{4}');
-            isBolded = reg.test(textarea.value.slice(selectionStart - 2, selectionEnd + 2));
-            if (!isBolded) {
+            bolded = textarea.value.slice(selectionStart - 2, selectionEnd + 2) == '****';
+            if (!bolded) {
                 afterText = textarea.value.slice(0, selectionStart) + '****' + textarea.value.slice(selectionEnd);
                 textarea.value = afterText;
                 textarea.setSelectionRange(selectionStart + 2, selectionStart + 2);
@@ -35,9 +33,10 @@ var mdEditor = {
             }
         } else {
             var selectedText = textarea.value.slice(selectionStart, selectionEnd);
-            reg = new RegExp('\\*{2}' + selectedText + '\\*{2}');
-            isBolded = reg.test(textarea.value.slice(selectionStart - 2, selectionEnd + 2));
-            if (!isBolded) {
+            var prefix = textarea.value.slice(selectionStart - 2, selectionStart);
+            var suffix = textarea.value.slice(selectionEnd, selectionEnd + 2);
+            bolded = prefix == '**' && suffix == '**';
+            if (!bolded) {
                 afterText = textarea.value.slice(0, selectionStart) + '**' + selectedText + '**' + textarea.value.slice(selectionEnd);
                 textarea.value = afterText;
                 textarea.selectionStart = selectionStart + 2;
@@ -51,18 +50,16 @@ var mdEditor = {
         }
         textarea.focus();
     },
-    doItalic: function() {
+    doItalic: function () {
         var that = this;
         var textarea = document.getElementById(that.target);
         var selectionStart = textarea.selectionStart;
         var selectionEnd = textarea.selectionEnd;
-        var reg;
         var afterText;
-        var isItaliced;
+        var italiced;
         if (selectionStart == selectionEnd) {
-            reg = new RegExp('_{4}');
-            isItaliced = reg.test(textarea.value.slice(selectionStart - 2, selectionEnd + 2));
-            if (!isItaliced) {
+            italiced = textarea.value.slice(selectionStart - 2, selectionEnd + 2) == '____';
+            if (!italiced) {
                 afterText = textarea.value.slice(0, selectionStart) + '____' + textarea.value.slice(selectionEnd);
                 textarea.value = afterText;
                 textarea.setSelectionRange(selectionStart + 2, selectionStart + 2);
@@ -73,23 +70,22 @@ var mdEditor = {
             }
         } else {
             var selectedText = textarea.value.slice(selectionStart, selectionEnd);
-            reg = new RegExp('__' + selectedText + '__');
-            isItaliced = reg.test(textarea.value.slice(selectionStart - 2, selectionEnd + 2));
-            if (!isItaliced) {
+            var prefix = textarea.value.slice(selectionStart - 2, selectionStart);
+            var suffix = textarea.value.slice(selectionEnd, selectionEnd + 2);
+            italiced = prefix == '__' && suffix == '__';
+            if (!italiced) {
                 afterText = textarea.value.slice(0, selectionStart) + '__' + selectedText + '__' + textarea.value.slice(selectionEnd);
                 textarea.value = afterText;
-                textarea.selectionStart = selectionStart + 2;
-                textarea.selectionEnd = selectionEnd + 2;
+                textarea.setSelectionRange(selectionStart + 2, selectionEnd + 2);
             } else {
                 afterText = textarea.value.slice(0, selectionStart - 2) + selectedText + textarea.value.slice(selectionEnd + 2);
                 textarea.value = afterText;
-                textarea.selectionStart = selectionStart - 2;
-                textarea.selectionEnd = selectionEnd - 2;
+                textarea.setSelectionRange(selectionStart - 2, selectionEnd - 2);
             }
         }
         textarea.focus();
     },
-    doPicture: function(imgPath) {
+    doPicture: function (imgPath) {
         var that = this;
         var textarea = document.getElementById(that.target);
         var selectionStart = textarea.selectionStart;
@@ -97,11 +93,10 @@ var mdEditor = {
         var afterText;
         afterText = textarea.value.slice(0, selectionStart) + '![-](' + imgPath + ')' + textarea.value.slice(selectionEnd);
         textarea.value = afterText;
-        textarea.selectionStart = selectionStart + 2;
-        textarea.selectionEnd = selectionEnd + 2;
+        textarea.setSelectionRange(selectionStart + 2, selectionEnd + 2);
         textarea.focus();
     },
-    doLink: function() {
+    doLink: function () {
         var that = this;
         var textarea = document.getElementById(that.target);
         var selectionStart = textarea.selectionStart;
@@ -110,89 +105,80 @@ var mdEditor = {
         var selectedText = textarea.value.slice(selectionStart, selectionEnd);
         afterText = textarea.value.slice(0, selectionStart) + '[' + selectedText + '](url)' + textarea.value.slice(selectionEnd);
         textarea.value = afterText;
-        textarea.selectionStart = selectionStart + selectedText.length + 3;
-        textarea.selectionEnd = selectionEnd + 6;
+        textarea.setSelectionRange(selectionStart + selectedText.length + 3, selectionEnd + 6)
         textarea.focus();
     },
-    doCode: function() {
+    doCode: function () {
         var that = this;
         var textarea = document.getElementById(that.target);
         var selectionStart = textarea.selectionStart;
         var selectionEnd = textarea.selectionEnd;
         var afterText;
         var selectedText = textarea.value.slice(selectionStart, selectionEnd);
-        var isHaveLineBreak = new RegExp('\n.+').test(selectedText);
-
-        var isStartWithLineBreak =
-
-
-        if(isHaveNewLine){
-            afterText = textarea.value.slice(0, selectionStart) + '\n```\n' + selectedText + '\n```\n' + textarea.value.slice(selectionEnd);
+        var beginLineBreakLength = selectedText.length - selectedText.replace(/^\n*/g, '').length;
+        var endLineBreakLength = selectedText.length - selectedText.replace(/\n*$/g, '').length;
+        selectedText = selectedText.replace(/^\n*|\n*$/g, '');
+        var multiline  =selectedText.indexOf('\n') != -1  ;
+        if (multiline) {
+            afterText = textarea.value.slice(0, selectionStart + beginLineBreakLength) + '\n```\n' + selectedText + '\n```\n' + textarea.value.slice(selectionEnd - endLineBreakLength);
             textarea.value = afterText;
-            textarea.selectionStart = selectionStart + 5;
-            textarea.selectionEnd = selectionEnd + 5;
-        }else{
+            textarea.setSelectionRange(selectionStart + beginLineBreakLength + 5, selectionEnd - endLineBreakLength + 5)
+        } else {
             afterText = textarea.value.slice(0, selectionStart) + '`' + selectedText + '`' + textarea.value.slice(selectionEnd);
             textarea.value = afterText;
-            textarea.selectionStart = selectedText + 1;
-            textarea.selectionEnd = selectionEnd + 1;
+            textarea.setSelectionRange(selectionStart + 1, selectionEnd + 1);
         }
         textarea.focus();
-
-
-
-
+    },
+    doPaperclip: function () {
 
     },
-    doPaperclip: function() {
+    doQuoteleft: function () {
 
     },
-    doQuoteleft: function() {
+    doListol: function () {
 
     },
-    doListol: function() {
+    doListul: function () {
 
     },
-    doListul: function() {
+    doFullscreen: function () {
 
     },
-    doFullscreen: function() {
-
-    },
-    initEvent: function() {
+    initEvent: function () {
         var that = this;
 
-        $('.md-btn-bold').click(function() {
+        $('.md-btn-bold').click(function () {
             that.doBold()
         });
-        $('.md-btn-italic').click(function() {
+        $('.md-btn-italic').click(function () {
             that.doItalic()
         });
-        $('.md-btn-picture').click(function() {
+        $('.md-btn-picture').click(function () {
             $('#mdUploadImgModal').modal('show')
         });
-        $('.md-btn-link').click(function() {
+        $('.md-btn-link').click(function () {
             that.doLink()
         });
-        $('.md-btn-code').click(function() {
+        $('.md-btn-code').click(function () {
             that.doCode()
         });
-        $('.md-btn-paperclip').click(function() {
+        $('.md-btn-paperclip').click(function () {
             that.doPaperclip()
         });
-        $('.md-btn-quoteleft').click(function() {
+        $('.md-btn-quoteleft').click(function () {
             that.doQuoteleft()
         });
-        $('.md-btn-listol').click(function() {
+        $('.md-btn-listol').click(function () {
             that.doListol()
         });
-        $('.md-btn-listul').click(function() {
+        $('.md-btn-listul').click(function () {
             that.doListul()
         });
-        $('.md-btn-fullscreen').click(function() {
+        $('.md-btn-fullscreen').click(function () {
             that.doFullscreen()
         });
-        $('#mdUploadImg').change(function() {
+        $('#mdUploadImg').change(function () {
             $('#mdUploadForm')[0].submit();
         });
 
@@ -233,6 +219,6 @@ function setCaretPosition(elemId, caretPos) {
 }
 
 
-$(function() {
+$(function () {
     mdEditor.initEvent();
 });
