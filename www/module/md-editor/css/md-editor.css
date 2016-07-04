@@ -63,14 +63,14 @@
     max-width: 100%;
 }
 
-#mdUploadImgBtn{
+#mdUploadBtn{
     border: dotted #ccc 2px;
     line-height: 40px;
     text-align: center;
     color: #999999;
 }
 
-#mdUploadImgBtn:hover{
+#mdUploadBtn:hover{
     border: dotted #B3B3B3 2px;
     box-shadow: 0 0 1px #B3B3B3;
     cursor: pointer;

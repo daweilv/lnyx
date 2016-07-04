@@ -197,9 +197,10 @@
         <input class="upload-file hidden" name="file" type="file" accept="image/*">
         <input type="hidden" name="callback" value="o.uploadCallback">
     </form>
-    <form id="mdUploadForm" name="mdUploadForm" action="/admin/upload" target="mdUploadImgFrame" method="post" enctype="multipart/form-data">
-        <input class="hidden" id="mdUploadImg" name="file" type="file" accept="image/*">
-        <input type="hidden" name="callback" value="mdEditor.uploadCallback">
+    <form id="mdUploadForm" name="mdUploadForm" action="/admin/upload" target="mdUploadFrame" method="post" enctype="multipart/form-data">
+        <input class="hidden" id="mdUploadFile" name="file" type="file" accept="image/*">
+        <input id="mdUploadType" name="type" type="hidden">
+        <input name="callback" type="hidden" value="mdEditor.uploadCallback">
     </form>
 
 </div>

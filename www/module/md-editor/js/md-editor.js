@@ -3,8 +3,12 @@ var mdEditor = {
     uploadCallback: function (rs) {
         var that = this;
         if (rs.status) {
-            $('#mdUploadImgModal').modal('hide');
-            that.doPicture(rs.data.file.path);
+            if (rs.data.type == '1') {
+                that.doPicture(rs.data.file.path);
+            } else {
+                that.doAttachment(rs.data.file.path);
+            }
+            $('#mdUploadModal').modal('hide');
         } else {
             alert(rs.msg)
         }
@@ -85,13 +89,13 @@ var mdEditor = {
         }
         textarea.focus();
     },
-    doPicture: function (imgPath) {
+    doPicture: function (filePath) {
         var that = this;
         var textarea = document.getElementById(that.target);
         var selectionStart = textarea.selectionStart;
         var selectionEnd = textarea.selectionEnd;
         var afterText;
-        afterText = textarea.value.slice(0, selectionStart) + '![-](' + imgPath + ')' + textarea.value.slice(selectionEnd);
+        afterText = textarea.value.slice(0, selectionStart) + '![-](' + filePath + ')' + textarea.value.slice(selectionEnd);
         textarea.value = afterText;
         textarea.setSelectionRange(selectionStart + 2, selectionEnd + 2);
         textarea.focus();
@@ -118,7 +122,7 @@ var mdEditor = {
         var beginLineBreakLength = selectedText.length - selectedText.replace(/^\n*/g, '').length;
         var endLineBreakLength = selectedText.length - selectedText.replace(/\n*$/g, '').length;
         selectedText = selectedText.replace(/^\n*|\n*$/g, '');
-        var multiline  =selectedText.indexOf('\n') != -1  ;
+        var multiline = selectedText.indexOf('\n') != -1;
         if (multiline) {
             afterText = textarea.value.slice(0, selectionStart + beginLineBreakLength) + '\n```\n' + selectedText + '\n```\n' + textarea.value.slice(selectionEnd - endLineBreakLength);
             textarea.value = afterText;
@@ -130,16 +134,48 @@ var mdEditor = {
         }
         textarea.focus();
     },
-    doPaperclip: function () {
-
+    doAttachment: function (filePath) {
+        var that = this;
+        var textarea = document.getElementById(that.target);
+        var selectionStart = textarea.selectionStart;
+        var selectionEnd = textarea.selectionEnd;
+        var afterText;
+        afterText = textarea.value.slice(0, selectionStart) + '[-](' + filePath + ')' + textarea.value.slice(selectionEnd);
+        textarea.value = afterText;
+        textarea.setSelectionRange(selectionStart + 2, selectionEnd + 2);
+        textarea.focus();
     },
     doQuoteleft: function () {
+        var that = this;
+        var textarea = document.getElementById(that.target);
+        var selectionStart = textarea.selectionStart;
+        var selectionEnd = textarea.selectionEnd;
+        var afterText;
+        var selectedText = textarea.value.slice(selectionStart, selectionEnd);
+        var multiline = selectedText.indexOf('\n') != -1;
+        if (multiline) {
+            var i = 0;
+            afterText = selectedText.split('\n').map(function (partText) {
+                    i++;
+                    return '\n> ' + partText;
+                }).toString() + '\n';
+            textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
+            textarea.setSelectionRange(selectionStart + 1, selectionEnd + 3 * i);
+        } else {
+            afterText = '\n> ' + selectedText + '\n';
+            textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
+            textarea.setSelectionRange(selectionStart + 3, selectionEnd + 3);
+        }
 
+        textarea.focus();
     },
     doListol: function () {
 
     },
     doListul: function () {
+
+    },
+    doListalt: function () {
 
     },
     doFullscreen: function () {
@@ -155,7 +191,7 @@ var mdEditor = {
             that.doItalic()
         });
         $('.md-btn-picture').click(function () {
-            $('#mdUploadImgModal').modal('show')
+            $('#mdUploadModal').modal('show')
         });
         $('.md-btn-link').click(function () {
             that.doLink()
@@ -164,7 +200,7 @@ var mdEditor = {
             that.doCode()
         });
         $('.md-btn-paperclip').click(function () {
-            that.doPaperclip()
+            $('#mdUploadModal').modal('show')
         });
         $('.md-btn-quoteleft').click(function () {
             that.doQuoteleft()
@@ -175,49 +211,21 @@ var mdEditor = {
         $('.md-btn-listul').click(function () {
             that.doListul()
         });
+        $('.md-btn-listalt').click(function () {
+            that.doListalt()
+        });
         $('.md-btn-fullscreen').click(function () {
             that.doFullscreen()
         });
-        $('#mdUploadImg').change(function () {
+        $('#mdUploadFile').change(function () {
             $('#mdUploadForm')[0].submit();
         });
-
-        $('#mdUploadImgBtn').click(function () {
-            $('#mdUploadImg').click()
-        })
+        $('#mdUploadBtn').click(function () {
+            $('#mdUploadFile').click();
+        });
+        $('.data-tooltip').tooltip();
     }
 };
-
-
-function setCaretPosition(elemId, caretPos) {
-    var el = document.getElementById(elemId);
-
-    el.value = el.value;
-    // ^ this is used to not only get "focus", but
-    // to make sure we don't have it everything -selected-
-    // (it causes an issue in chrome, and having it doesn't hurt any other browser)
-
-    if (el !== null) {
-
-        if (el.createTextRange) {
-            var range = el.createTextRange();
-            range.move('character', caretPos);
-            range.select();
-            return true;
-        } else {
-            // (el.selectionStart === 0 added for Firefox bug)
-            if (el.selectionStart || el.selectionStart === 0) {
-                el.focus();
-                el.setSelectionRange(caretPos, caretPos);
-                return true;
-            } else { // fail city, fortunately this never happens (as far as I've tested) :)
-                el.focus();
-                return false;
-            }
-        }
-    }
-}
-
 
 $(function () {
     mdEditor.initEvent();

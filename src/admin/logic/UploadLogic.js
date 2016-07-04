@@ -3,7 +3,7 @@ var formidable = require('formidable');
 
 var logic = {
 
-    upload: function(req, res, next) {
+    upload: function (req, res, next) {
         var _rs = {};
 
         var form = new formidable.IncomingForm(); //创建上传表单
@@ -12,8 +12,9 @@ var logic = {
         form.keepExtensions = true; //保留后缀
         form.maxFieldsSize = 1000 * 1024 * 1024; //文件大小
 
-        form.parse(req, function(err, fields, files) {
+        form.parse(req, function (err, fields, files) {
             var callback = fields.callback;
+            var type = fields.type;
             if (err) {
                 console.error(err);
                 _rs.status = false;
@@ -33,6 +34,9 @@ var logic = {
             _rs.data = {
                 file: file
             };
+            if (type) {
+                _rs.data.type = type;
+            }
 
             res.end(uploadCallback(callback, _rs));
 
