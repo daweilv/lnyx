@@ -158,25 +158,84 @@ var mdEditor = {
             afterText = selectedText.split('\n').map(function (partText) {
                     i++;
                     return '\n> ' + partText;
-                }).toString() + '\n';
+                }).join('') + '\n';
             textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
-            textarea.setSelectionRange(selectionStart + 1, selectionEnd + 3 * i);
+            textarea.setSelectionRange(selectionStart + 1, selectionEnd + 2 * i + 1);
         } else {
             afterText = '\n> ' + selectedText + '\n';
             textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
             textarea.setSelectionRange(selectionStart + 3, selectionEnd + 3);
         }
-
         textarea.focus();
     },
     doListol: function () {
-
+        var that = this;
+        var textarea = document.getElementById(that.target);
+        var selectionStart = textarea.selectionStart;
+        var selectionEnd = textarea.selectionEnd;
+        var afterText;
+        var selectedText = textarea.value.slice(selectionStart, selectionEnd);
+        var multiline = selectedText.indexOf('\n') != -1;
+        if (multiline) {
+            var i = 0;
+            afterText = selectedText.split('\n').map(function (partText) {
+                    i++;
+                    return i + '. ' + partText;
+                }).join('\n') + '\n';
+            textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
+            textarea.setSelectionRange(selectionStart, selectionEnd + 3 * i);
+        } else {
+            afterText = '1. ' + selectedText + '\n';
+            textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
+            textarea.setSelectionRange(selectionStart + 3, selectionEnd + 3);
+        }
+        textarea.focus();
     },
     doListul: function () {
-
+        var that = this;
+        var textarea = document.getElementById(that.target);
+        var selectionStart = textarea.selectionStart;
+        var selectionEnd = textarea.selectionEnd;
+        var afterText;
+        var selectedText = textarea.value.slice(selectionStart, selectionEnd);
+        var multiline = selectedText.indexOf('\n') != -1;
+        if (multiline) {
+            var i = 0;
+            afterText = selectedText.split('\n').map(function (partText) {
+                    i++;
+                    return '- ' + partText;
+                }).join('\n') + '\n';
+            textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
+            textarea.setSelectionRange(selectionStart, selectionEnd + 2 * i);
+        } else {
+            afterText = '1. ' + selectedText + '\n';
+            textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
+            textarea.setSelectionRange(selectionStart, selectionEnd + 3);
+        }
+        textarea.focus();
     },
     doListalt: function () {
-
+        var that = this;
+        var textarea = document.getElementById(that.target);
+        var selectionStart = textarea.selectionStart;
+        var selectionEnd = textarea.selectionEnd;
+        var afterText;
+        var selectedText = textarea.value.slice(selectionStart, selectionEnd);
+        var multiline = selectedText.indexOf('\n') != -1;
+        if (multiline) {
+            var i = 0;
+            afterText = selectedText.split('\n').map(function (partText) {
+                    i++;
+                    return '- [ ] ' + partText;
+                }).join('\n') + '\n';
+            textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
+            textarea.setSelectionRange(selectionStart, selectionEnd + 6 * i);
+        } else {
+            afterText = '1. ' + selectedText + '\n';
+            textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
+            textarea.setSelectionRange(selectionStart, selectionEnd + 6);
+        }
+        textarea.focus();
     },
     doFullscreen: function () {
 
