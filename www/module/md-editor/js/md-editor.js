@@ -231,7 +231,7 @@ var mdEditor = {
             textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
             textarea.setSelectionRange(selectionStart, selectionEnd + 6 * i);
         } else {
-            afterText = '1. ' + selectedText + '\n';
+            afterText = '- [ ] ' + selectedText + '\n';
             textarea.value = textarea.value.slice(0, selectionStart) + afterText + textarea.value.slice(selectionEnd);
             textarea.setSelectionRange(selectionStart, selectionEnd + 6);
         }
