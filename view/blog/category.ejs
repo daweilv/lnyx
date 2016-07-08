@@ -43,9 +43,12 @@
             <div class="article-category"><a href="/category/<%=data.categorysPair[article.article_category_id]%>"><%=data.categorysPair[article.article_category_id]%></a></div>
             <div class="article-date"><%=article.create_at.substring(0,10)%></div>
           </div>
-          <div class="article-title"><a href="/article/<%=article.seo_url%>"><%=article.name%></a>
+          <a href="/article/<%=article.seo_url%>">
+          <div class="article-title"><%=article.name%>
           </div>
-          <div class="article-brief"><%=article.brief%></div>
+
+            <div class="article-brief"><%=article.brief%></div>
+          </a>
           </div>
         </div>
         <%
@@ -53,7 +56,7 @@
         }else{
         %>
         <div class="not-found">
-          未找到相关记录!
+          Ops！未找到相关文章..
         </div>
         <%}%>
 
