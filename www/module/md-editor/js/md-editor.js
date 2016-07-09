@@ -17,6 +17,32 @@ var mdEditor = {
 
         //todo: 高度自适应
     },
+    doHeader: function (number) {
+        var that = this;
+        var textarea = document.getElementById(that.target);
+        var selectionStart = textarea.selectionStart;
+        var selectionEnd = textarea.selectionEnd;
+        var afterText;
+        var poundSign = '';
+        for (var i = 0; i < number; i++) {
+            poundSign += '#';
+        }
+        var start;
+        if (selectionStart == 0) {
+            start = 0
+        } else {
+            for (start = selectionStart - 1; start > 0; --start) {
+                if (textarea.value[start] == '\n') {
+                    start++;
+                    break;
+                }
+            }
+        }
+        afterText = textarea.value.slice(0, start) + poundSign + ' ' + textarea.value.slice(start);
+        textarea.value = afterText;
+        textarea.setSelectionRange(selectionStart + number + 1, selectionStart + number + 1);
+        textarea.focus();
+    },
     doBold: function () {
         var that = this;
         var textarea = document.getElementById(that.target);
@@ -251,6 +277,7 @@ var mdEditor = {
         });
         $('.md-btn-picture').click(function () {
             $('#mdUploadModal').modal('show')
+            $('#mdUploadType').val(1);
         });
         $('.md-btn-link').click(function () {
             that.doLink()
@@ -259,7 +286,8 @@ var mdEditor = {
             that.doCode()
         });
         $('.md-btn-paperclip').click(function () {
-            $('#mdUploadModal').modal('show')
+            $('#mdUploadModal').modal('show');
+            $('#mdUploadType').val(2);
         });
         $('.md-btn-quoteleft').click(function () {
             that.doQuoteleft()

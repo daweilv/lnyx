@@ -154,32 +154,37 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 
 /*---post---*/
 .post {
-    /*padding: 15px 30px;*/
+    padding: 20px 15px;
     /*background: #FFF;*/
     /*position: relative;*/
     /*margin: 20px 0;*/
-    /*border-radius: 2px;*/
-    /*border: 1px solid #eee;*/
+    border-radius: 2px;
+    border: 1px solid #eee;
 }
 
 .post .post-title {
     color: #53555c;
-    font-size: 22px;
-    font-weight: bolder;
+    font-size: 30px;
 }
 
-.post .post-info {
+.post .post-meta {
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
+    color: #999;
 }
 
-.post .post-info a {
-    color: #53555c;
+.post .post-meta .author{
+    margin-right: 10px;
 }
 
-.post .post-info a i {
-    margin-right: 2px;
+.post .post-meta a {
+    color: #999;
+}
+
+
+.post .post-meta a.comment-anchor {
+    margin-left: 10px;
 }
 
 .post .post-image{
@@ -204,7 +209,6 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 .post .post-content div{
     overflow: auto;
 }
-
 /*---post---*/
 
 /*---footer---*/
@@ -230,7 +234,6 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 .footer p {
     margin-bottom: 0;
 }
-
 /*---footer---*/
 
 .articles {
@@ -245,7 +248,6 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 }
 
 .article-box:hover {
-    /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
     box-shadow: 0 0 2px rgba(0,0,0,.2);
 }
 .article-box .article-cover {

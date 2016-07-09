@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="<%= data.article.name%>">
-  <meta name="author" content="<%= data.article.name%>">
+  <meta name="description" content="<%= data.article.seo_description%>">
+  <meta name="keywords" content="<%= data.article.seo_keywords%>">
+  <meta name="author" content="<%= data.article.author%>">
   <link rel="icon" href="/common/img/favicon.ico">
   <title><%= data.article.name%> | lnyx blog | 大卫的个人博客</title>
   <link href="/module/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,15 +28,19 @@
   <div class="row">
     <% include common/sidebar.ejs%>
 
-    <div class="col-sm-9 post">
+    <div class="col-sm-9">
+      <div class="post">
         <div class="post-title">
           <%=data.article.name%>
         </div>
-        <div class="post-info">
+        <div class="post-meta">
+          <span class="author">by <%=data.article.author%></span>
           <i class="glyphicon glyphicon-time"></i>
-          <%=data.article.create_at%>
+          <%=data.article.create_at.substring(0,10)%>
           <% if(data.article.is_show_comment){%>
-          <a href="#comments" class="glyphicon glyphicon-comment"></a>
+          <a href="#comments" class="comment-anchor">
+            <i class="glyphicon glyphicon-comment"></i>
+          </a>
           <a href="#disqus_thread" title="Show Comments">
           </a>
           <%}%>
@@ -77,7 +82,7 @@
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
       </div>
         <%}%>
-
+      </div>
     </div>
   </div>
 </div>

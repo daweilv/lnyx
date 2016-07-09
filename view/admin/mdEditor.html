@@ -14,12 +14,12 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="md-h1">h1</a></li>
-                            <li><a href="#" class="md-h2">h2</a></li>
-                            <li><a href="#" class="md-h3">h3</a></li>
-                            <li><a href="#" class="md-h4">h4</a></li>
-                            <li><a href="#" class="md-h5">h5</a></li>
-                            <li><a href="#" class="md-h6">h6</a></li>
+                            <li><a onclick="mdEditor.doHeader(1)" href="javascript:;" class="md-h1">h1</a></li>
+                            <li><a onclick="mdEditor.doHeader(2)" href="javascript:;"  class="md-h2">h2</a></li>
+                            <li><a onclick="mdEditor.doHeader(3)" href="javascript:;"  class="md-h3">h3</a></li>
+                            <li><a onclick="mdEditor.doHeader(4)" href="javascript:;"  class="md-h4">h4</a></li>
+                            <li><a onclick="mdEditor.doHeader(5)" href="javascript:;"  class="md-h5">h5</a></li>
+                            <li><a onclick="mdEditor.doHeader(6)" href="javascript:;"  class="md-h6">h6</a></li>
                         </ul>
                     </div>
                     <button type="button" class="btn btn-default data-tooltip md-btn md-btn-bold" data-container="body" title="加粗"><span class="glyphicon glyphicon-bold"></span></button>
@@ -35,7 +35,7 @@
                     <button type="button" class="btn btn-default data-tooltip md-btn md-btn-fullscreen" data-container="body" title="全屏"><i class="glyphicon glyphicon-fullscreen"></i></button>
                 </div>
             </div>
-            <textarea name="content_md" id="content_md" rows="12" class="form-control"></textarea>
+            <textarea name="content_md" id="content_md" rows="30" class="form-control"></textarea>
         </div>
         <div class="tab-pane" id="md-preview">
             <div class="md-content"></div>

@@ -183,14 +183,9 @@
                                     <% } %>
                                 </p>
                             </div>
-
-
-
-
                     </div>
                 </div>
             </div>
-
         </form>
     </div>
     <form id="imgForm" name="imgForm" action="/admin/upload" target="imgFrame" method="post" enctype="multipart/form-data">
@@ -198,7 +193,7 @@
         <input type="hidden" name="callback" value="o.uploadCallback">
     </form>
     <form id="mdUploadForm" name="mdUploadForm" action="/admin/upload" target="mdUploadFrame" method="post" enctype="multipart/form-data">
-        <input class="hidden" id="mdUploadFile" name="file" type="file" accept="image/*">
+        <input class="hidden" id="mdUploadFile" name="file" type="file">
         <input id="mdUploadType" name="type" type="hidden">
         <input name="callback" type="hidden" value="mdEditor.uploadCallback">
     </form>
