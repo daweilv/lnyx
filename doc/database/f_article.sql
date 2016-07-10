@@ -11,7 +11,7 @@ CREATE TABLE `f_article` (
   `is_show_comment` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否显示评论',
   `tag` varchar(100) DEFAULT NULL COMMENT '标签',
   `seo_url` varchar(200) DEFAULT NULL COMMENT 'SEO链接',
-  `seo_title` varchar(200) DEFAULT NULL COMMENT 'SEO描述',
+  `seo_title` varchar(200) DEFAULT NULL COMMENT 'SEO标题',
   `seo_keywords` varchar(200) DEFAULT NULL COMMENT 'SEO关键词',
   `seo_description` varchar(200) DEFAULT NULL COMMENT 'SEO描述',
   `create_at` varchar(24) DEFAULT NULL COMMENT '创建日期',

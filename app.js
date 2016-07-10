@@ -10,6 +10,7 @@ var session = require('express-session');
 var config = require('./src/common/config');
 var blog = require('./src/blog/route');
 var admin = require('./src/admin/route');
+var stat = require('./src/common/stat');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use(session({
 }));
 app.use(express.static(path.join(__dirname, 'www')));
 
+app.use(stat);
 app.use('/', blog);
 app.use('/', admin);
 
