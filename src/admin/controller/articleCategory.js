@@ -7,7 +7,6 @@ var DateUtil = require('../../common/util/DateUtil');
 
 var articleCategory = {
     queryAll: function (callback) {
-
         DBInstance.query('select * from f_article_category where delete_by is null', function (err, rows, fields) {
             if (err) {
                 return callback(err)

@@ -1,5 +1,5 @@
 var RequestUtil = {
-    getUserSession: function getUserSession(req) {
+    getUser: function (req) {
         return req.session.user;
     },
     getLogin: function (req) {
