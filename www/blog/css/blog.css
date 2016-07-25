@@ -175,6 +175,7 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 .post .post-title {
     color: #53555c;
     font-size: 30px;
+    font-weight: normal;
 }
 
 .post .post-meta {
@@ -219,6 +220,15 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 .post .post-content div {
     overflow: auto;
 }
+
+.post .post-content blockquote {
+    font-size: 14px;
+}
+
+.post .post-content code {
+    font-size: 12px;
+}
+
 
 /*---post---*/
 

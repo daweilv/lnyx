@@ -8,7 +8,7 @@
   <meta name="keywords" content="<%= data.article.seo_keywords%>">
   <meta name="author" content="<%= data.article.author%>">
   <link rel="icon" href="/common/img/favicon.ico">
-  <title><%= data.article.name%> | JS嘿! | 大卫的个人博客</title>
+  <title><%= data.article.name%> | JS Hey! | 大卫的个人博客</title>
   <link href="/module/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/blog/css/blog.css" rel="stylesheet">
   <link rel="stylesheet" href="/module/highlight/styles/github.css">
@@ -30,19 +30,21 @@
 
     <div class="col-sm-9">
       <div class="post">
-        <div class="post-title">
+        <h1 class="post-title">
           <%=data.article.name%>
-        </div>
+        </h1>
         <div class="post-meta">
-          <span class="author">by <%=data.article.author%></span>
-          <i class="glyphicon glyphicon-time"></i>
-          <%=data.article.create_at.substring(0,10)%>
+          <span class="author">作者：<%=data.article.author%></span>
+          <span class="date">发表于：<%=data.article.create_at.substring(0,10)%></span>
+
           <% if(data.article.is_show_comment){%>
+          <span class="comment">
           <a href="#comments" class="comment-anchor">
             <i class="glyphicon glyphicon-comment"></i>
           </a>
           <a href="#disqus_thread" title="Show Comments">
           </a>
+            </span>
           <%}%>
         </div>
       <% if(data.article.is_show_cover==1){%>

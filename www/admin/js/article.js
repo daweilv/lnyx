@@ -87,6 +87,10 @@ var o = {
         }
         this.initUploadImg();
         this.showMDPreviewEvent();
+        marked.setOptions({
+            breaks:true
+        });
+
     }
 };
 
