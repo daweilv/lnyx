@@ -229,6 +229,55 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
     font-size: 12px;
 }
 
+.post .post-content h1 {
+    font-size: 30px;
+    margin-bottom: 46px;
+}
+.post .post-content h2 {
+    font-size: 27px;
+    margin-bottom: 35px;
+}
+.post .post-content h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+.post .post-content h4 {
+    font-size: 21px;
+    margin-bottom: 28px;
+}
+.post .post-content h5 {
+    font-size: 18px;
+}
+.post .post-content h6 {
+    font-size: 16px;
+}
+
+.post .post-content  table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+    margin-bottom: 20px;
+}
+
+.post .post-content  table th {
+    font-weight: bold
+}
+
+.post .post-content  table th,.post .post-content  table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd
+}
+
+.post .post-content  table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc
+}
+
+.post .post-content  table tr:nth-child(2n) {
+    background-color: #f8f8f8
+}
 
 /*---post---*/
 

@@ -83,6 +83,40 @@
 .md-content img{
     max-width: 100%;
 }
+.md-content img {
+    max-width: 100%;
+}
+
+.md-content div {
+    overflow: auto;
+}
+
+.md-content blockquote {
+    font-size: 14px;
+}
+
+.md-content code {
+    font-size: 12px;
+}
+
+.md-content h1 {
+    font-size: 30px;
+}
+.md-content h2 {
+    font-size: 27px;
+}
+.md-content h3 {
+    font-size: 24px;
+}
+.md-content h4 {
+    font-size: 21px;
+}
+.md-content h5 {
+    font-size: 18px;
+}
+.md-content h6 {
+    font-size: 16px;
+}
 
 #mdUploadBtn{
     border: dotted #ccc 2px;

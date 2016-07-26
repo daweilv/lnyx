@@ -88,7 +88,8 @@ var o = {
         this.initUploadImg();
         this.showMDPreviewEvent();
         marked.setOptions({
-            breaks:true
+            breaks:true,
+            tables: true
         });
 
     }
