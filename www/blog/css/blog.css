@@ -222,6 +222,7 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 
 .post .post-content blockquote {
     font-size: 14px;
+    padding: 0 15px;
 }
 
 .post .post-content code {

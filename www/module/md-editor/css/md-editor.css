@@ -93,6 +93,7 @@
 
 .md-content blockquote {
     font-size: 14px;
+    padding: 0 15px;
 }
 
 .md-content code {
