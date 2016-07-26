@@ -118,6 +118,33 @@
     font-size: 16px;
 }
 
+.md-content table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+    margin-bottom: 20px;
+}
+
+.md-content table th {
+    font-weight: bold
+}
+
+.md-content table th,.md-content table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd
+}
+
+.md-content table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc
+}
+
+.md-content table tr:nth-child(2n) {
+    background-color: #f8f8f8
+}
+
 #mdUploadBtn{
     border: dotted #ccc 2px;
     line-height: 40px;
