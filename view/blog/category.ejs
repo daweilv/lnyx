@@ -10,14 +10,12 @@
   <title><%= data.category_name ? data.category_name+' | ':''%> JS Hey! | 大卫的个人博客</title>
   <link href="/module/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/blog/css/blog.css" rel="stylesheet">
-  <link href="/module/pace/themes/blue/pace-theme-flash.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <script src="/module/pace/pace.min.js"></script>
 </head>
 
 <body>
@@ -25,13 +23,13 @@
 
 <div class="container main">
   <div class="row">
-    <div class="col-sm-9 articles pull-right">
+    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 articles pull-right">
       <div class="row">
         <%
         if(data.articles && data.articles.length > 0){
           data.articles.forEach(function (article) {
         %>
-        <div class="col-lg-4 col-md-6 col-xs-12">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="article-box">
           <a href="/article/<%=article.seo_url%>">
             <div class="article-cover" style="background-image: url(<%=article.cover%>)">
