@@ -25,9 +25,7 @@
 
 <div class="container main">
   <div class="row">
-    <% include common/sidebar.ejs%>
-
-    <div class="col-sm-9 articles">
+    <div class="col-sm-9 articles pull-right">
       <div class="row">
         <%
         if(data.articles && data.articles.length > 0){
@@ -59,18 +57,14 @@
           Ops！未找到相关文章..
         </div>
         <%}%>
-
       </div>
-
-
     </div>
+    <% include common/sidebar.ejs%>
   </div>
 </div>
 
 <% include common/footer.ejs%>
 
-
 <% include common/script.ejs%>
-
 </body>
 </html>

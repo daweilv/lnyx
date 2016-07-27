@@ -26,9 +26,8 @@
 
 <div class="container main">
   <div class="row">
-    <% include common/sidebar.ejs%>
 
-    <div class="col-sm-9">
+    <div class="col-sm-9 pull-right">
       <div class="post">
         <h1 class="post-title">
           <%=data.article.name%>
@@ -68,8 +67,7 @@
            */
 
            var disqus_config = function () {
-//           this.page.url = 'http://localhost:3000/article/20160610164227734510'; // Replace PAGE_URL with your page's canonical URL variable
-           this.page.identifier = '<%=data.article.id%>'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            this.page.identifier = '<%=data.article.id%>'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
            };
 
           (function() { // DON'T EDIT BELOW THIS LINE
@@ -86,11 +84,11 @@
         <%}%>
       </div>
     </div>
+    <% include common/sidebar.ejs%>
   </div>
 </div>
 
 <% include common/footer.ejs%>
-
 
 <% include common/script.ejs%>
 <% if(data.article.is_show_comment){%>
