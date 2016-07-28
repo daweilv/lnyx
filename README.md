@@ -1,5 +1,8 @@
 # lnyx
 
-一个基于Node.js,Bootstrap写的博客系统
+power by Node.js, Bootstrap
 
-状态:开发中
+release version 0.0.2
+
+> You can see the first online [blog](http://jshey.com) :)
+
