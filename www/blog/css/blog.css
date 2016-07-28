@@ -22,6 +22,7 @@ a:hover {
 }
 
 .main .not-found {
+    padding-left: 15px;
     color: #999;
 }
 
@@ -82,7 +83,7 @@ a:hover {
 
 .navbar-blog .navbar-toggle:hover,
 .navbar-blog .navbar-toggle:focus {
-    background-color: #ddd;
+    background-color: transparent;
 }
 
 .navbar-blog .navbar-toggle .icon-bar {
@@ -159,17 +160,12 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
 .sidebar .recent-posts li:last-child, .sidebar .categories li:last-child {
     border-bottom: 1px solid #D5D5D5;
 }
-
 /*---sidebar---*/
 
 /*---post---*/
 .post {
     padding: 20px 15px;
-    /*background: #FFF;*/
-    /*position: relative;*/
-    /*margin: 20px 0;*/
     border-radius: 2px;
-    border: 1px solid #eee;
 }
 
 .post .post-title {
@@ -220,9 +216,15 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
     overflow: auto;
 }
 
+.post .post-content pre {
+    padding: 5px 10px;
+    background-color: #f8f8f8;
+    border: none;
+}
+
 .post .post-content blockquote {
     font-size: 14px;
-    padding: 0 15px;
+    padding: 5px 10px;
 }
 
 .post .post-content code {
@@ -382,22 +384,10 @@ fieldset[disabled] .navbar-blog .btn-link:focus {
     color: #4f8db3;
 }
 
-pre {
-    padding: 0;
-    background-color: transparent;
-    border: none;
-}
-
 @media (max-width: 767px) {
 
-    .main .articles {
-        padding: 15px;
-    }
-
     .post {
-        padding-left: 15px;
-        padding-right: 15px;
-        margin: 0;
+        padding: 0;
     }
 
     .post .post-image img {
@@ -406,7 +396,7 @@ pre {
     }
 
     .footer {
-        margin-top: 0;
+        margin-top: 20px;
     }
 
     .navbar {
