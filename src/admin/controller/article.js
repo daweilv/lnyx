@@ -20,7 +20,7 @@ var ArticleController = {
         });
     },
     queryByCategoryName: function (category_name, callback) {
-        DBInstance.query('select * from f_article where delete_by is null and article_category_id = (select id from f_article_category where name = ?)', category_name, function (err, rows) {
+        DBInstance.query('select * from f_article where delete_by is null and article_category_id = (select id from f_article_category where name = ?) order by create_at desc', category_name, function (err, rows) {
             callback(err, rows);
         });
     },
@@ -32,7 +32,7 @@ var ArticleController = {
         }
     },
     query: function (callback) {
-        DBInstance.query('select * from f_article where delete_by is null', function (err, rows) {
+        DBInstance.query('select * from f_article where delete_by is null order by create_at desc', function (err, rows) {
             callback(err, rows);
         });
     },
