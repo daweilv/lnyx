@@ -4,6 +4,7 @@
     <% include common/head.ejs %>
     <link rel="stylesheet" href="/module/md-editor/css/md-editor.css"/>
     <link rel="stylesheet" href="/module/highlight/styles/github.css">
+    <link rel="stylesheet" href="/module/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
 </head>
 
 <body>
@@ -57,6 +58,22 @@
                             <input id="id" name="id" type="hidden"/>
                             <input id="brief" name="brief" type="hidden"/>
 
+
+                            <div class="form-group">
+                                <label for="publish_at" class="control-label">发布日期</label>
+                                <div class="input-group" id="datetimepicker">
+                                    <input type="text" class="form-control" id="publish_at" name="publish_at">
+                                    <span class="input-group-addon touchable">
+                                        <span class="glyphicon glyphicon-calendar">
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="is_publish" name="is_publish" type="checkbox" value="1" checked> 是否发布
+                                </label>
+                            </div>
                             <div class="form-group">
                                 <label for="article_category_id" class="control-label">分类</label>
 
@@ -94,32 +111,30 @@
                                     <iframe id="imgFrame" name="imgFrame" class="hidden"></iframe>
                                 </div>
                             </div>
+
                             <div class="checkbox">
                                 <label>
-                                    <input id="is_show_cover" name="is_show_cover" type="checkbox" value="1"> 在正文中显示封面
+                                    <input id="is_show" name="is_show" type="checkbox" value="1" checked> 是否可见
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input id="is_show_comment" name="is_show_comment" type="checkbox" value="1"> 显示评论
+                                    <input id="is_show_cover" name="is_show_cover" type="checkbox" value="1" checked> 在正文中显示封面
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="is_show_comment" name="is_show_comment" type="checkbox" value="1" checked> 显示评论
                                 </label>
                             </div>
                             <div class="form-group">
                                 <label for="tag" class="control-label">标签</label>
-
                                 <input type="text" class="form-control" id="tag" name="tag"
                                        placeholder="tag">
                             </div>
 
                             <div class="form-group">
-                                <label for="seo_title" class="control-label">SEO标题</label>
-
-                                <input type="text" class="form-control" id="seo_title" name="seo_title"
-                                       placeholder="seo_title">
-                            </div>
-                            <div class="form-group">
                                 <label for="seo_keywords" class="control-label">SEO关键词</label>
-
                                 <input type="text" class="form-control" id="seo_keywords" name="seo_keywords"
                                        placeholder="seo_keywords">
                             </div>
@@ -130,60 +145,39 @@
                                        placeholder="seo_description">
                             </div>
 
+                            <% if(data.create_at){ %>
                             <div class="form-group">
                                 <label for="create_at" class="control-label">创建日期</label>
-
                                 <p class="form-control-static">
-                                    <% if(data.create_at){ %>
                                     <%= data.create_at %>
-                                    <% } %>
                                 </p>
                             </div>
+                            <% } %>
+                            <% if(data.create_by){ %>
                             <div class="form-group">
                                 <label for="create_by" class="control-label">创建人</label>
-
                                 <p class="form-control-static">
-                                    <% if(data.create_by){ %>
                                     <%= data.create_by %>
-                                    <% } %>
                                 </p>
                             </div>
+                            <% } %>
+                            <% if(data.update_at){ %>
                             <div class="form-group">
                                 <label for="update_at" class="control-label">更新日期</label>
-
                                 <p class="form-control-static">
-                                    <% if(data.update_at){ %>
                                     <%= data.update_at %>
-                                    <% } %>
                                 </p>
                             </div>
+                            <% } %>
+                            <% if(data.update_by){ %>
                             <div class="form-group">
                                 <label for="update_by" class="control-label">更新人</label>
-
                                 <p class="form-control-static">
-                                    <% if(data.update_by){ %>
                                     <%= data.update_by %>
-                                    <% } %>
                                 </p>
                             </div>
-                            <div class="form-group">
-                                <label for="delete_at" class="control-label">删除日期</label>
+                            <% } %>
 
-                                <p class="form-control-static">
-                                    <% if(data.delete_at){ %>
-                                    <%= data.delete_at %>
-                                    <% } %>
-                                </p>
-                            </div>
-                            <div class="form-group">
-                                <label for="delete_by" class="control-label">删除人</label>
-
-                                <p class="form-control-static">
-                                    <% if(data.delete_by){ %>
-                                    <%= data.delete_by %>
-                                    <% } %>
-                                </p>
-                            </div>
                     </div>
                 </div>
             </div>
@@ -208,6 +202,9 @@
 <!--<script src="/module/markdown/markdown.js"></script>-->
 <script src="/module/md-editor/js/marked.min.js"></script>
 <script src="/module/md-editor/js/md-editor.js"></script>
+<!--<script src="/module/moment/moment.min.js"></script>-->
+<script src="/module/moment/moment-with-locales.min.js"></script>
+<script src="/module/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/admin/js/article.js"></script>
 <script src="/module/highlight/highlight.pack.js"></script>
 </body>

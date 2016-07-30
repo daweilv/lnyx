@@ -23,6 +23,8 @@
                     <th>编号</th>
                     <th>父级编号</th>
                     <th>名称</th>
+                    <th>SEO_URL</th>
+                    <th>是否可见</th>
                     <th>排序号</th>
                     <th>操作</th>
                 </tr>
@@ -36,6 +38,8 @@
                     <td><%= item.id %></td>
                     <td><%= item.parent_id %></td>
                     <td><%= item.name %></td>
+                    <td><%= item.seo_url %></td>
+                    <td><%= item.is_show %></td>
                     <td><%= item.seq %></td>
                     <td>
                         <a href="/admin/articleCategory/<%= item.id %>" data-toggle="tooltip" data-placement="top" title="编辑"><span class="glyphicon glyphicon-edit"></span></a>

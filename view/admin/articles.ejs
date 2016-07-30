@@ -24,6 +24,10 @@
                     <th>名称</th>
                     <th>分类</th>
                     <th>作者</th>
+                    <th>是否发布</th>
+                    <th>发布日期</th>
+                    <th>是否可见</th>
+                    <th>是否显示评论</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -37,6 +41,10 @@
                     <td><%= item.name %></td>
                     <td><%= categorys[item.article_category_id] %></td>
                     <td><%= item.author %></td>
+                    <th><%= item.is_publish %></th>
+                    <th><%= item.publish_at %></th>
+                    <th><%= item.is_show %></th>
+                    <th><%= item.is_show_comment %></th>
                     <td>
                         <a href="/article/<%= item.id %>" target="_blank" data-toggle="tooltip" data-placement="top" title="预览"><span class="glyphicon glyphicon-eye-open"></span></a>
                         <i class="divider"></i>

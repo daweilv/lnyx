@@ -73,3 +73,7 @@ i.divider:after{
 .upload-img-box .upload-file {
     display: none;
 }
+
+.touchable{
+    cursor: pointer;
+}

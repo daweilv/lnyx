@@ -1,10 +1,11 @@
 var async = require('async');
-var UserController = require('../controller/user');
+var UserController = require('../controller/UserController');
 
-var logic = {
+var LoginLogic = {
     goLogin: function (req, res, next) {
         res.render('admin/login', {title: '登录'});
     },
+
     login: function (req, res, next) {
         var _rs = {};
         var login = req.body.login;
@@ -56,6 +57,7 @@ var logic = {
             res.json(_rs)
         })
     },
+
     logout: function (req, res, next) {
         var _rs = {};
         delete req.session.user;
@@ -67,4 +69,4 @@ var logic = {
     }
 };
 
-module.exports = logic;
+module.exports = LoginLogic;

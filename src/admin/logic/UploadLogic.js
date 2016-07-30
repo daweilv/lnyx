@@ -1,7 +1,7 @@
 var config = require('../../common/config');
 var formidable = require('formidable');
 
-var logic = {
+var UploadLogic = {
 
     upload: function (req, res, next) {
         var _rs = {};
@@ -48,4 +48,4 @@ var logic = {
 
 };
 
-module.exports = logic;
+module.exports = UploadLogic;

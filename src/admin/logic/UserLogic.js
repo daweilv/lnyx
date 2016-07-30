@@ -1,9 +1,9 @@
 var querystring = require('querystring');
-var UserController = require('../controller/user');
+var UserController = require('../controller/UserController');
 
 var logic = {
     getUsers: function (req, res, next) {
-        var _rs = {user:req.session.user};
+        var _rs = {user: req.session.user};
         UserController.queryAll(function (err, rows) {
             if (err) {
                 console.error(err);
@@ -13,8 +13,9 @@ var logic = {
             res.render('admin/users', _rs);
         })
     },
+
     getUser: function (req, res, next) {
-        var _rs = {user:req.session.user};
+        var _rs = {user: req.session.user};
         var id = req.params.id;
         if (id == 0) {
             _rs.data = {id: 0};
@@ -22,8 +23,8 @@ var logic = {
         }
         UserController.queryById(id, function (err, rows) {
             if (err) {
-                console.error(err);
-                return res.end(err)
+                err.status = 404;
+                return next(err);
             }
 
             if (rows.length > 0) {
@@ -35,6 +36,7 @@ var logic = {
             res.render('admin/user', _rs);
         })
     },
+
     saveUser: function (req, res, next) {
         var _rs = {};
         var _model = querystring.parse(req.body._model);
@@ -50,6 +52,7 @@ var logic = {
 
         })
     },
+
     deleteUser: function (req, res, next) {
         var _rs = {};
         var id = req.params.id;
@@ -59,7 +62,7 @@ var logic = {
                 _rs.error = err;
                 return res.json(_rs)
             }
-            _rs.data = {id:id};
+            _rs.data = {id: id};
             _rs.status = true;
             res.json(_rs);
         })

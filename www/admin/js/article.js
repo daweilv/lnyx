@@ -76,6 +76,8 @@ var o = {
                     if (type == 'checkbox') {
                         if (data[key] == 1 || data[key] == true) {
                             $key.prop('checked', true)
+                        }else{
+                            $key.prop('checked', false)
                         }
                     }
                 } else if (tagName == 'SELECT') {
@@ -91,6 +93,16 @@ var o = {
             breaks:true,
             tables: true
         });
+
+
+        $('#datetimepicker').datetimepicker({
+            defaultDate: new Date(),
+            format: 'YYYY-MM-DD',
+            locale: 'zh-cn'
+        });
+        $('#publish_at').focus(function () {
+            $('#datetimepicker').data("DateTimePicker").show()
+        })
 
     }
 };

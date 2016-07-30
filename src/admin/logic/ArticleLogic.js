@@ -1,15 +1,15 @@
 var async = require('async');
 var querystring = require('querystring');
 
-var articleController = require('../controller/article');
-var articleCategoryController = require('../controller/articleCategory');
+var ArticleController = require('../controller/ArticleController');
+var ArticleCategoryController = require('../controller/ArticleCategoryController');
 
-var logic = {
+var ArticleLogic = {
     getArticles: function (req, res, next) {
         var _rs = {user: req.session.user};
         async.auto({
             categorys: function (callback) {
-                articleCategoryController.categorys(function (err, result) {
+                ArticleCategoryController.categorys(function (err, result) {
                     if (err) {
                         return callback(err)
                     }
@@ -22,7 +22,7 @@ var logic = {
                 })
             },
             articles: function (callback) {
-                articleController.queryAll(function (err, rows) {
+                ArticleController.queryAll(function (err, rows) {
                     if (err) {
                         return callback(err)
                     }
@@ -30,21 +30,22 @@ var logic = {
                 })
             }
         }, function (err, rs) {
-            if(err) {
-                console.log(err);
+            if (err) {
+                return next(err);
             }
             _rs.categorys = rs.categorys;
             _rs.data = rs.articles;
             res.render('admin/articles', _rs);
         })
     },
+
     getArticle: function (req, res, next) {
         var _rs = {user: req.session.user};
         var id = req.params.id;
 
         async.auto({
             categorys: function (callback) {
-                articleCategoryController.categorySelectTree(function (err, result) {
+                ArticleCategoryController.categorySelectTree(function (err, result) {
                     if (err) {
                         return callback(err)
                     }
@@ -55,7 +56,7 @@ var logic = {
                 if (id == 0) {
                     callback(null, {id: 0})
                 } else {
-                    articleController.queryById(id, function (err, rows) {
+                    ArticleController.queryById(id, function (err, rows) {
                         if (err) {
                             return callback(err)
                         }
@@ -69,27 +70,33 @@ var logic = {
                 }
             }
         }, function (err, rs) {
-            if(err){
-                console.log(err);
-
+            if (err) {
+                return next(err);
             }
             _rs.categorys = rs.categorys;
             _rs.data = rs.article;
             res.render('admin/article', _rs);
         })
     },
+
     saveArticle: function (req, res, next) {
         var _rs = {};
         var _model = querystring.parse(req.body._model);
 
-        if(!_model.is_show_cover){
+        if (!_model.is_show_cover) {
             _model.is_show_cover = 0;
         }
-        if(!_model.is_show_comment){
+        if (!_model.is_show_comment) {
             _model.is_show_comment = 0;
         }
+        if (!_model.is_show) {
+            _model.is_show = 0;
+        }
+        if (!_model.is_publish) {
+            _model.is_publish = 0;
+        }
 
-        articleController.insertOrUpdate(_model, req, function (err, result) {
+        ArticleController.insertOrUpdate(_model, req, function (err, result) {
             if (err) {
                 _rs.status = false;
                 _rs.error = err;
@@ -101,10 +108,11 @@ var logic = {
 
         })
     },
+
     deleteArticle: function (req, res, next) {
         var _rs = {};
         var id = req.params.id;
-        articleController.delete(id, req, function (err, result) {
+        ArticleController.delete(id, req, function (err, result) {
             if (err) {
                 _rs.status = false;
                 _rs.error = err;
@@ -117,4 +125,4 @@ var logic = {
     }
 };
 
-module.exports = logic;
+module.exports = ArticleLogic;

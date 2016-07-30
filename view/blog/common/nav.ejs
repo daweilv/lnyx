@@ -17,10 +17,10 @@
                 <% data.categorys.forEach(function (category) {
                     var active = category.id == data.current_category_id ? ' class="active"':'';
                 %>
-                <li <%- active%>><a href="/category/<%=category.name%>"><%=category.name%></a></li>
+                <li <%- active%>><a href="/category/<%=category.seo_url%>"><%=category.name%></a></li>
                 <%
                 })%>
-                <li><a href="https://github.com/code4funlnyx/" target="_blank">Github</a></li>
+                <li><a href="https://github.com/code4funlnyx/" target="_blank" rel="noflow">Github</a></li>
             </ul>
         </div>
     </div>

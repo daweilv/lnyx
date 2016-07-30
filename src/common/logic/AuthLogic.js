@@ -1,4 +1,4 @@
-var auth = {
+var AuthLogic = {
     isLogin: function (req, res, next) {
         if (!req.session.user) {
             return res.redirect('/admin/login');
@@ -8,4 +8,4 @@ var auth = {
 
 };
 
-module.exports = auth;
+module.exports = AuthLogic;
