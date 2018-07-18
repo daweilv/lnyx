@@ -2,5 +2,5 @@
 
 power by Node.js, Bootstrap
 
-**deprcated**
+**deprecated**
 
